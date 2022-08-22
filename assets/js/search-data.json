@@ -13,7 +13,7 @@
   
     
         ,"post1": {
-            "title": "This is my jupiter notebook",
+            "title": "This is my jupyter notebook",
             "content": "print(&quot;Hello&quot;) .",
             "url": "https://aaron-rub.github.io/FP/jupyter/2020/02/20/test.html",
             "relUrl": "/jupyter/2020/02/20/test.html",
