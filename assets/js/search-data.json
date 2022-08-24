@@ -14,7 +14,7 @@
     
         ,"post1": {
             "title": "This is my jupyter notebook",
-            "content": "print(&quot;Hello&quot;) .",
+            "content": "print(&quot;Here is a random number generator.&quot;) import random print(&quot;A random number from list is :&quot;, end=&quot;&quot;) print(random.choice([3,6,8,66,3,5,99,100,2102])) print(&quot;A random number from range is : &quot;, end=&quot;&quot;) print(random.randrange(1, 100)) . print(&quot;Hello&quot;) .",
             "url": "https://aaron-rub.github.io/FP/jupyter/2020/02/20/test.html",
             "relUrl": "/jupyter/2020/02/20/test.html",
             "date": " • Feb 20, 2020"
