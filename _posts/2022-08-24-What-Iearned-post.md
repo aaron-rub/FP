@@ -5,5 +5,5 @@ description: Here was what I leanred today in all of my classes.
 categories: [markdown]
 title: What I learned in my other classes today
 ---
-## AP World history
-today in hisotry I learned.
+## My homework for AP World history for the next week
+[Here is the link to my AP World history homework for the next few days.](https://docs.google.com/document/d/1pZpsiJbjfWFL4h1HNx8oQgEhI8kb4hlqkOW4oKGZ03M/edit)
