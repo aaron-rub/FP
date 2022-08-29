@@ -62,7 +62,7 @@
   
       ,"page1": {
           "title": "About Me",
-          "content": "Welcome to my blog! . My name is Aaron Rubin and here are some fun facts about me. I have 10 siblings, 4 brothers and 6 sisters. I am new to coding. I like to learn! .",
+          "content": "Welcome to my blog! . My name is Aaron Rubin and here are some fun facts about me. I have 10 siblings, 4 brothers and 6 sisters. I am new to coding. I like to learn. .",
           "url": "https://aaron-rub.github.io/FP/about/",
           "relUrl": "/about/",
           "date": ""
@@ -73,7 +73,7 @@
   
       ,"page2": {
           "title": "Commands",
-          "content": "",
+          "content": "input: is a function used to take in user input. output: Is the printing of input into the consle HTML: a structured markup processing tool. .",
           "url": "https://aaron-rub.github.io/FP/about/",
           "relUrl": "/about/",
           "date": ""
