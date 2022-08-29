@@ -73,9 +73,9 @@
   
       ,"page2": {
           "title": "Commands",
-          "content": "input: is a function used to take in user input. output: Is the printing of input into the consle HTML: a structured markup processing tool. .",
-          "url": "https://aaron-rub.github.io/FP/about/",
-          "relUrl": "/about/",
+          "content": "input: is a function used to take in user input. . output: Is the printing of input into the consle . HTML: a structured markup processing tool. .",
+          "url": "https://aaron-rub.github.io/FP/commands/",
+          "relUrl": "/commands/",
           "date": ""
       }
       
