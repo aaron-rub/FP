@@ -4,8 +4,6 @@ title: About Me
 permalink: /about/
 ---
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+Welcome to my blog!
 
-
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+My name is Aaron Rubin and here are some fun facts about me. I have 10 siblings, 4 brothers and 6 sisters. I am new to coding. I like to learn.
