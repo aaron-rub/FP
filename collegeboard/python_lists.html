@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -220,10 +220,43 @@ person {'name': 'Aaron Rubin', 'age': 14, 'weight': 141, 'langs': ['Python', 'Ja
     <span class="s2">"Residence"</span><span class="p">:</span> <span class="s2">"San Diego"</span><span class="p">,</span>
     <span class="s2">"Email"</span><span class="p">:</span> <span class="s2">"aaronr06138@gmail.com"</span><span class="p">,</span>
     <span class="s2">"weight"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"141"</span><span class="p">]</span>
-<span class="p">})</span>
+<span class="p">})</span> <span class="c1">#InfoDb [0]</span>
+
+<span class="n">InfoDb</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+    <span class="s2">"FirstName"</span><span class="p">:</span> <span class="s2">"Chris"</span><span class="p">,</span>
+    <span class="s2">"LastName"</span><span class="p">:</span> <span class="s2">"Rubin"</span><span class="p">,</span>
+    <span class="s2">"DOB"</span><span class="p">:</span> <span class="s2">"March 18"</span><span class="p">,</span>
+    <span class="s2">"Residence"</span><span class="p">:</span> <span class="s2">"San Diego"</span><span class="p">,</span>
+    <span class="s2">"Email"</span><span class="p">:</span> <span class="s2">"jabba67891@gmail.com"</span><span class="p">,</span>
+    <span class="s2">"weight"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"148"</span><span class="p">]</span>
+<span class="p">})</span> <span class="c1">#InfoDb [1]</span>
+
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">InfoDb</span><span class="p">)</span>
+
+<span class="c1"># Append to List a Dictionary of key/values related to a person and cars</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+
+[{'FirstName': 'Aaron', 'LastName': 'Rubin', 'DOB': 'November 5', 'Residence': 'San Diego', 'Email': 'aaronr06138@gmail.com', 'weight': ['141']}, {'FirstName': 'Chris', 'LastName': 'Rubin', 'DOB': 'March 18', 'Residence': 'San Diego', 'Email': 'jabba67891@gmail.com', 'weight': ['148']}]
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -268,6 +301,9 @@ person {'name': 'Aaron Rubin', 'age': 14, 'weight': 141, 'langs': ['Python', 'Ja
 Aaron Rubin
 	 Residence: San Diego
 	 Birth Day: November 5
+	 weight:141Chris Rubin
+	 Residence: San Diego
+	 Birth Day: March 18
 	 weight:141</pre>
 </div>
 </div>
@@ -355,6 +391,46 @@ Aaron Rubin
 Aaron Rubin
 	 Residence: San Diego
 	 Birth Day: November 5
+	 weight:141Crhis Rubin
+	 Residence: San Diego
+	 Birth Day: March 18
+	 weight:141</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">InfoDb</span><span class="p">)):</span>
+        <span class="n">print_data</span><span class="p">(</span><span class="n">InfoDb</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Aaron Rubin
+	 Residence: San Diego
+	 Birth Day: November 5
+	 weight:141Crhis Rubin
+	 Residence: San Diego
+	 Birth Day: March 18
 	 weight:141</pre>
 </div>
 </div>
