@@ -80,6 +80,7 @@ default_badges:
 html_escape:
   description: false
 
+#below is for my timebox
 weekly_units: [Tool setup, Intro to python, Data abstruction, Creative Development]
 week_number: 3
 
