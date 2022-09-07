@@ -11,6 +11,7 @@ search_exclude: true
        <th>Week</th>
        <th>Unit</th>
        <th>Summary</th>
+       <th>Cpmpleted</th>
    </tr>
  
    {% for i in (0..site.week_number) %}
@@ -19,6 +20,7 @@ search_exclude: true
        <td>{{ i }}</td>
        <td>{{ site.weekly_units[i] }}</td>
        <td>{{ site.summary[i] }}</td>
+       <td>{{ site.completed[i] }}</td>
    </tr>
    {% endfor %}
 
