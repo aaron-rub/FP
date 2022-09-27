@@ -1,21 +1,6 @@
-<div id="javascript-tab">
- 
-</div>
- 
-<script>
- 
-const data = ["yasha","james","quinn","aaron"]
- 
-let table = document.createElement("table");
-let row = document.createElement("tr");
-for(let i=0; i<data.length; i++){
-   let td=document.createElement("td");
-   let node=document.createTextNode(data[i]);
-   td.appendChild(node);
-   row.appendChild(td);
-}
-table.appendChild(row);
-let div = document.getElementById("javascriptTable");
-div.appendChild(table);
- 
-</script>
+<table>
+    <tr>
+        <td><a href="{{site.baseurl}}/techtalk/javascript">Javascript Kernel</a></td>  
+        <td><a href="{{site.baseurl}}/omega/jstable">Javascript Table</a></td>
+    </tr>
+</table>
