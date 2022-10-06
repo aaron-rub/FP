@@ -84,7 +84,7 @@ html_escape:
 #in the timebox HTML I have a command "{% for i in (0..site.week_number) %}" this is called a for loop. The for loop is a loop used for iterating over a sequence(even if its a list, tuple, dictionary, string, or a set) This works more like a iterator method as found in other object-oriented programming languages. helps reiterate a specific block of code a known number of times. For example if we want to check the grade of every student in the class, we loop from 1 to that number. When the number of times is not known before hand, we use a "While" loop.
 summary: [During the tool setup we learned about all of the reources that we would be using throughout the school year. After that we tested some of the tools like Jupyter notebooks and fastpages.,During the Intro to python week we learned about the intro of python and we learned about setting up work using Bash kernal and establishing PBL habits which helped focused mindset in the classroom.,During week 2 we learnedabout Data Abstraction. In the beggining of the week we were shown dictionaries. We also learned about how all Computer Science fields are related to data.,TBD]
 weekly_units: [Tool setup, Intro to python, Data abstruction, Creative Development, Pyhton Web Server, TBD, TBD, TBD]
-completed: [Yes,Yes,Yes,Yes,No,No,No,No]
+completed: [Yes,Yes,Yes,Yes,Yes,No,No,No]
 week_number: 7
 
 # Everything below here should be left alone. Modifications may break fastpages
