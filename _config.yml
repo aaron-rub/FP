@@ -6,7 +6,7 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: My first blog
+title: Aaron's fastpges
 description: My CSP blog.
 github_username: aaron-rub
 # you can comment the below line out if your repo name is not different than your baseurl
@@ -79,6 +79,13 @@ default_badges:
 # Escape HTML in post descriptions
 html_escape:
   description: false
+
+#below is for my timebox, #Here is where I store my info so that my timebox HTML can direct to here when using the site. command. Here I have sqaure brackets which are used for lists and tuples.
+#in the timebox HTML I have a command "{% for i in (0..site.week_number) %}" this is called a for loop. The for loop is a loop used for iterating over a sequence(even if its a list, tuple, dictionary, string, or a set) This works more like a iterator method as found in other object-oriented programming languages. helps reiterate a specific block of code a known number of times. For example if we want to check the grade of every student in the class, we loop from 1 to that number. When the number of times is not known before hand, we use a "While" loop.
+summary: [During the tool setup we learned about all of the reources that we would be using throughout the school year. After that we tested some of the tools like Jupyter notebooks and fastpages.,During the Intro to python week we learned about the intro of python and we learned about setting up work using Bash kernal and establishing PBL habits which helped focused mindset in the classroom.,During week 2 we learnedabout Data Abstraction. In the beggining of the week we were shown dictionaries. We also learned about how all Computer Science fields are related to data.,TBD]
+weekly_units: [Tool setup, Intro to python, Data abstruction, Creative Development, Pyhton Web Server, TBD, TBD, TBD]
+completed: [Yes,Yes,Yes,Yes,No,No,No,No]
+week_number: 7
 
 # Everything below here should be left alone. Modifications may break fastpages
 future: true
