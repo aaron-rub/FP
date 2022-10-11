@@ -13,7 +13,7 @@
   
     
         ,"post1": {
-            "title": "Code Corrections",
+            "title": "Code Corrections!",
             "content": "menu = {&quot;burger&quot;: 3.99, &quot;fries&quot;: 1.99, &quot;drink&quot;: 0.99, &quot;burger and fries&quot;: 5.98, &quot;burger and drink&quot;: 4.98, &quot;fries and drink&quot;: 2.98} total = 0 #shows the user the menu and prompts them to select an item print(&quot;Menu&quot;) for k,v in menu.items(): print(k + &quot; $&quot; + str(v)) #why does v have &quot;str&quot; in front of it? #ideally the code should prompt the user multiple times item = input(&quot;Please select an item from the menu&quot;) #code should add the price of the menu items selected by the user print(menu[item]) #print(&quot;Total=&quot; + &quot; $&quot; + str(v)) . Menu burger $3.99 fries $1.99 drink $0.99 burger and fries $5.98 burger and drink $4.98 fries and drink $2.98 5.98 .",
             "url": "https://aaron-rub.github.io/FP/jupyter/python/2022/10/03/AP-error_testing.html",
             "relUrl": "/jupyter/python/2022/10/03/AP-error_testing.html",
