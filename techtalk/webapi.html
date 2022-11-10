@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      28 min read
     
 </span></p>
 
@@ -141,7 +141,6 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h3"><a href="#Model-for-API">Model for API </a></li>
 <li class="toc-entry toc-h3"><a href="#Backend-Interface-for-Web-API-(Control)">Backend Interface for Web API (Control) </a></li>
 <li class="toc-entry toc-h3"><a href="#Frontend-(View-Simulation)-and-Hacks">Frontend (View Simulation) and Hacks </a></li>
 </ul><!--
@@ -153,36 +152,6 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Model-for-API">
-<a class="anchor" href="#Model-for-API" aria-hidden="true"><span class="octicon octicon-link"></span></a>Model for API<a class="anchor-link" href="#Model-for-API"> </a>
-</h3>
-<blockquote>
-<p>We will begin our journey into APIs by creating and thinking about data.  We have learned about Python Lists and dictionaries.  In this data example, we are going to make "the best computer jokes ever ;)" and serve them over the Internet.  The ultimate objective is to allow our viewers to provide a like or dislike on each of our jokes.</p>
-</blockquote>
-<ul>
-<li>
-<p>This code planning begins by coming up with some jokes and defining a data "model" to keep and manage the jokes.</p>
-<ul>
-<li>jokes_data   contains a list of dictionary records containing joke and reactions:haha or boohoo    - joke_list   contains collection of jokes we will put into jokes_data</li>
-</ul>
-</li>
-<li>
-<p>Next comes some functions to interact with our jokes</p>
-<ul>
-<li>def initJokes(): initializes jokes_data</li>
-<li>def getJokes(): returns the complete list of jokes</li>
-<li>def getJoke():  returns a single joke from our list</li>
-<li>... many more function can be examined by reading comments below ...</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -221,16 +190,16 @@ window.onload = wrap_img;
     <span class="c1"># setup jokes into a dictionary with id, joke, haha, boohoo</span>
     <span class="n">item_id</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">joke_list</span><span class="p">:</span>
-        <span class="n">jokes_data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"id"</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">"joke"</span><span class="p">:</span> <span class="n">item</span><span class="p">,</span> <span class="s2">"haha"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"boohoo"</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+        <span class="n">jokes_data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"id"</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">"joke"</span><span class="p">:</span> <span class="n">item</span><span class="p">,</span> <span class="s2">"good"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"bad"</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
         <span class="n">item_id</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="c1"># prime some haha responses</span>
+    <span class="c1"># prime some good responses</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">):</span>
         <span class="nb">id</span> <span class="o">=</span> <span class="n">getRandomJoke</span><span class="p">()[</span><span class="s1">'id'</span><span class="p">]</span>
-        <span class="n">addJokeHaHa</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
-    <span class="c1"># prime some haha responses</span>
+        <span class="n">addJokegood</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+    <span class="c1"># prime some bad responses</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
         <span class="nb">id</span> <span class="o">=</span> <span class="n">getRandomJoke</span><span class="p">()[</span><span class="s1">'id'</span><span class="p">]</span>
-        <span class="n">addJokeBooHoo</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+        <span class="n">addJokebad</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
         
 <span class="c1"># Return all jokes from jokes_data</span>
 <span class="k">def</span> <span class="nf">getJokes</span><span class="p">():</span>
@@ -303,6 +272,36 @@ window.onload = wrap_img;
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">/home/aaron_ru/vscode/FP/_notebooks/2022-10-17-PBL-webapi_tutorial.ipynb Cell 2</span> in <span class="ansi-cyan-fg">&lt;cell line: 94&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://wsl%2Bubuntu/home/aaron_ru/vscode/FP/_notebooks/2022-10-17-PBL-webapi_tutorial.ipynb#W2sdnNjb2RlLXJlbW90ZQ%3D%3D?line=92'&gt;93&lt;/a&gt;</span> # Test Joke Model
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://wsl%2Bubuntu/home/aaron_ru/vscode/FP/_notebooks/2022-10-17-PBL-webapi_tutorial.ipynb#W2sdnNjb2RlLXJlbW90ZQ%3D%3D?line=93'&gt;94&lt;/a&gt;</span> if __name__ == "__main__": 
+<span class="ansi-green-fg">---&gt; &lt;a href='vscode-notebook-cell://wsl%2Bubuntu/home/aaron_ru/vscode/FP/_notebooks/2022-10-17-PBL-webapi_tutorial.ipynb#W2sdnNjb2RlLXJlbW90ZQ%3D%3D?line=94'&gt;95&lt;/a&gt;</span>     initJokes()  # initialize jokes
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://wsl%2Bubuntu/home/aaron_ru/vscode/FP/_notebooks/2022-10-17-PBL-webapi_tutorial.ipynb#W2sdnNjb2RlLXJlbW90ZQ%3D%3D?line=96'&gt;97&lt;/a&gt;</span>     # Most likes and most jeered
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://wsl%2Bubuntu/home/aaron_ru/vscode/FP/_notebooks/2022-10-17-PBL-webapi_tutorial.ipynb#W2sdnNjb2RlLXJlbW90ZQ%3D%3D?line=97'&gt;98&lt;/a&gt;</span>     best = favoriteJoke()
+
+<span class="ansi-green-intense-fg ansi-bold">/home/aaron_ru/vscode/FP/_notebooks/2022-10-17-PBL-webapi_tutorial.ipynb Cell 2</span> in <span class="ansi-cyan-fg">initJokes</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://wsl%2Bubuntu/home/aaron_ru/vscode/FP/_notebooks/2022-10-17-PBL-webapi_tutorial.ipynb#W2sdnNjb2RlLXJlbW90ZQ%3D%3D?line=34'&gt;35&lt;/a&gt;</span> for i in range(200):
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://wsl%2Bubuntu/home/aaron_ru/vscode/FP/_notebooks/2022-10-17-PBL-webapi_tutorial.ipynb#W2sdnNjb2RlLXJlbW90ZQ%3D%3D?line=35'&gt;36&lt;/a&gt;</span>     id = getRandomJoke()['id']
+<span class="ansi-green-fg">---&gt; &lt;a href='vscode-notebook-cell://wsl%2Bubuntu/home/aaron_ru/vscode/FP/_notebooks/2022-10-17-PBL-webapi_tutorial.ipynb#W2sdnNjb2RlLXJlbW90ZQ%3D%3D?line=36'&gt;37&lt;/a&gt;</span>     addJokegood(id)
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://wsl%2Bubuntu/home/aaron_ru/vscode/FP/_notebooks/2022-10-17-PBL-webapi_tutorial.ipynb#W2sdnNjb2RlLXJlbW90ZQ%3D%3D?line=37'&gt;38&lt;/a&gt;</span> # prime some bad responses
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://wsl%2Bubuntu/home/aaron_ru/vscode/FP/_notebooks/2022-10-17-PBL-webapi_tutorial.ipynb#W2sdnNjb2RlLXJlbW90ZQ%3D%3D?line=38'&gt;39&lt;/a&gt;</span> for i in range(50):
+
+<span class="ansi-red-fg">NameError</span>: name 'addJokegood' is not defined</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -474,6 +473,1124 @@ window.onload = wrap_img;
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
+
+
+<span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter article of clothing: "</span><span class="p">)</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://pricer.p.rapidapi.com/str"</span>
+
+<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"q"</span><span class="p">:</span><span class="n">user_input</span><span class="p">}</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="s2">"X-RapidAPI-Key"</span><span class="p">:</span> <span class="s2">"cbb692713amshcff277d5ed43230p18a579jsn38813b83b73b"</span><span class="p">,</span>
+	<span class="s2">"X-RapidAPI-Host"</span><span class="p">:</span> <span class="s2">"pricer.p.rapidapi.com"</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># print(y[0]["title"])</span>
+
+<span class="c1"># parsing the Json to make it easier for the frontend </span>
+<span class="c1"># defining my variables for user input </span>
+<span class="n">title</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"title"</span><span class="p">])</span>
+<span class="n">price</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"price"</span><span class="p">])</span>
+<span class="n">shop</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"shop"</span><span class="p">])</span>
+<span class="n">shipping</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"shipping"</span><span class="p">])</span>
+<span class="n">link</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"link"</span><span class="p">])</span>
+<span class="n">image</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"img"</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">price</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">shop</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">shipping</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[
+   {
+      "title": "18 Promotional Tees | Adult Performance Blend T-Shirt Royal Blue Unisex Medium - Blue - Poly/Cotton 65/35 - Adult - 4imprint",
+      "price": "$265.90",
+      "shop": " from 4imprint",
+      "shipping": "+$18.51 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(14)",
+      "link": "https://www.google.com//url?q=https://www.4imprint.com/product/124634%3Fgfeed%3D1%26mkid%3D1pla124634&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQ2SkIzAE&amp;usg=AOvVaw1Z_e9zotVBTwIknud3RQvY",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRPEE8fcDUxOlA61ovZo3GsJ3MDWdQhdhlTERNzefJeefsVjJWsaoEqkzb9xHNcuP897nreVwEt&amp;usqp=CAE"
+   },
+   {
+      "title": "18 Printed Tshirts | Port 50/50 Blend T-Shirt - Men's - Embroidered Charcoal - Charcoal - Cotton/Poly 50/50 - Adult - 4imprint",
+      "price": "$265.22",
+      "shop": " from 4imprint",
+      "shipping": "+$18.51 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(1)",
+      "link": "https://www.google.com//url?q=https://www.4imprint.com/product/118392-M-C-E%3Fgfeed%3D1%26mkid%3D1pla118392-M-C-E&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQ2SkIzwE&amp;usg=AOvVaw3jmomfEF2L1socTALN_4mJ",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQRnSqlHgsN6WX-7mXGDSSNvf3wf3HIxUeIQgZOs2E4l5O-CMy9QEteXUMl69oOzZhcd36yG4Te&amp;usqp=CAE"
+   },
+   {
+      "title": "18 Branded Tees | Next Level Fitted 4.3 oz. Crew T-Shirt - Men's - Screen Heather Gray Small - Gray - Jersey - Adult - 4imprint",
+      "price": "$258.70",
+      "shop": " from 4imprint",
+      "shipping": "+$18.51 shipping",
+      "rating": "4 out of 5 stars",
+      "reviews": "(5)",
+      "link": "https://www.google.com//url?q=https://www.4imprint.com/product/111195-M-S%3Fgfeed%3D1%26mkid%3D1pla111195-M-S&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQ2SkI0gE&amp;usg=AOvVaw23ImuCVBPuMqjEuuGDnVER",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ02hFVuk-0pI8xX3oSVbna3FdqOntfE_OeaCp8RY7sOPBaqP2n7ic0F41Un9J32LJYWLaqksVh&amp;usqp=CAE"
+   },
+   {
+      "title": "18 Printed Tshirts | Port 50/50 Blend T-Shirt - Men's - Screen Jet Black Small - Black - Cotton/Poly 50/50 - Adult - 4imprint",
+      "price": "$258.70",
+      "shop": " from 4imprint",
+      "shipping": "+$18.51 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(8)",
+      "link": "https://www.google.com//url?q=https://www.4imprint.com/product/118392-M-C-S%3Fgfeed%3D1%26mkid%3D1pla118392-M-C-S&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQ2SkI1QE&amp;usg=AOvVaw24CxLpHJRueTd0sfcB2AoX",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSsoXXo-TV9RZSc3xXkbb3r5Ar9Gt8-sMz_ctsClpoQBVZ2JtVbnEfrx0W1q52jWKRVvl9arOs&amp;usqp=CAE"
+   },
+   {
+      "title": "Bulk Wholesale Branded Long Sleeve T-shirts 50 Tees (Mix Sizes)",
+      "price": "$250.00 used",
+      "shop": " from Thrift Vintage Fashion",
+      "shipping": "+$42.94 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(1)",
+      "link": "https://www.google.com//url?q=https://thriftvintagefashion.com/products/bulk-wholesale-branded-long-sleeve-t-shirts%3Fvariant%3D44120978358503%26currency%3DUSD%26utm_medium%3Dproduct_sync%26utm_source%3Dgoogle%26utm_content%3Dsag_organic%26utm_campaign%3Dsag_organic&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI2AE&amp;usg=AOvVaw1JWK9M1sVSLLcoKHHyqeng",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQOy5noBLcJ_HLUxLOwQuQE0DMIQEBmdJUb5GWr5M42ioueZQFj8YaQ58r6UN0&amp;usqp=CAE"
+   },
+   {
+      "title": "12 Promotional Tees | Tie-Dye Swirl T-Shirt - Men's Royal Blue Large - Blue - Cotton - Adult - 4imprint",
+      "price": "$250.00",
+      "shop": " from 4imprint",
+      "shipping": "+$14.12 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(1)",
+      "link": "https://www.google.com//url?q=https://www.4imprint.com/product/132480-M%3Fgfeed%3D1%26mkid%3D1pla132480-M&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQ2SkI3AE&amp;usg=AOvVaw3-zH46ifw9_oximHrFRhoo",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTEyiXMJvl0DLrEXcoAM1HcbcKXBnZPHdxzCdK0udx8TonXV_HaJzTpueDPDQLLRPVu47LrVDdW&amp;usqp=CAE"
+   },
+   {
+      "title": "12 Logo T Shirts | Comfort Colors Garment-Dyed 6.1 oz. T-Shirt - Screen Topaz Unisex XL - Topaz - Cotton - Adult - 4imprint",
+      "price": "$238.00",
+      "shop": " from 4imprint",
+      "shipping": "+$14.12 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(4)",
+      "link": "https://www.google.com//url?q=https://www.4imprint.com/product/147306%3Fgfeed%3D1%26mkid%3D1pla147306&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQ2SkI3wE&amp;usg=AOvVaw3K5fY-uBWVidGLgtYTjiNK",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQWbxS6MS8X-1-Tp1Jfb4jUzs6XsmHozyZtkcOXq9wo2tLzS_spalOa6DKPsHMyVay-ylRcNsw&amp;usqp=CAE"
+   },
+   {
+      "title": "12 Custom T-Shirts | BellaCanvas Tri-Blend T-Shirt - Men's Brown Tri-Blend Small - brown - Poly/Cotton/Rayon 50/25/25 - Adult - 4imprint",
+      "price": "$238.00",
+      "shop": " from 4imprint",
+      "shipping": "+$14.12 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(8)",
+      "link": "https://www.google.com//url?q=https://www.4imprint.com/product/112771-M%3Fgfeed%3D1%26mkid%3D1pla112771-M&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQ2SkI4gE&amp;usg=AOvVaw2Sc2ijAtFWcZcb6JMogs-9",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQZDgZMq8p5O0XFBuXCVya8vNYDhXtShOykzHr_R53qZuhPzN5cu6tlBJQSbv80o4WtGeNckpc&amp;usqp=CAE"
+   },
+   {
+      "title": "18 Logo Tees | Jerzees Dri-Power 50/50 T-Shirt - Men's - Screen Cool Mint Large - Cool Mint - Cotton/Poly 50/50 - Adult - 4imprint",
+      "price": "$232.42",
+      "shop": " from 4imprint",
+      "shipping": "+$18.51 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(21)",
+      "link": "https://www.google.com//url?q=https://www.4imprint.com/product/101585-M-S-C%3Fgfeed%3D1%26mkid%3D1pla101585-M-S-C&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQ2SkI5QE&amp;usg=AOvVaw2ePTUHmifMPNq0r7tn2lxG",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ8JlVN5NU2MO5NeLZVsxwevXKgj8SRB2TgJBGc5OJUPwRrIgXZ74cLaCuszc5Y867b4mGvTu4&amp;usqp=CAE"
+   },
+   {
+      "title": "Wholesale Brand Name T-shirts 25 Tees (Mix Size)",
+      "price": "$175.00 used",
+      "shop": " from Thrift Vintage Fashion",
+      "shipping": "+$25.61 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(12)",
+      "link": "https://www.google.com//url?q=https://thriftvintagefashion.com/products/wholesale-brand-name-t-shirts%3Fvariant%3D40042840391840%26currency%3DUSD%26utm_medium%3Dproduct_sync%26utm_source%3Dgoogle%26utm_content%3Dsag_organic%26utm_campaign%3Dsag_organic&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI6AE&amp;usg=AOvVaw1GfVBEjprC_RvZSykQv4o2",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRM1bs43KtCY_DLjjtLtF4sislFQVFQkTv6TYmwyNy2ubfPNwJaGfO-5fOWpXM&amp;usqp=CAE"
+   },
+   {
+      "title": "Vivienne Westwood Two-Pack T-Shirt",
+      "price": "$145.00",
+      "shop": " from Vivienne Westwood",
+      "shipping": "+$30.00 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(59)",
+      "link": "https://www.google.com//url?q=https://www.viviennewestwood.com/women/clothing/sweatshirts-and-t-shirts/two-pack-t-shirt-black-238050889198086.html%3Fkeeplocale%3Dtrue%26Country%3DUS&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI7AE&amp;usg=AOvVaw0iyhXAEWDrATR71KFEunH9",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSkr6LgY6-BEcyDEnTChTZP-TLvxyrf2k8DDVYcHYlMErV0slPrQUuRE-NhH3cGE5yYseIjhK3Z&amp;usqp=CAE"
+   },
+   {
+      "title": "Barrow Logo-Print Cotton T-Shirt Weiss",
+      "price": "$111.00",
+      "shop": " from ModeSens",
+      "shipping": "+$24.00 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(4)",
+      "link": "https://www.google.com//url?q=https://modesens.com/product/barrow-logo-print-cotton-t-shirt-weiss-49241952/%3Fcountry%3Dus%26language%3Den%26refinfo%3DgSH_ggfBarrouc-ApAcCl49241952&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI7wE&amp;usg=AOvVaw2GgGFXOTE3TMjgaBO_NnD0",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcS1T_LunpMyo3nn4VnRa7CSZdGi1LZG3Y3jlE41mIC2OJIOGXKlpoCsGaJbBCpXMyz3hOcBtq0&amp;usqp=CAE"
+   },
+   {
+      "title": "Karl Lagerfeld Paris - scenic Logo White Shirt - Soft White",
+      "price": "$89.50",
+      "shop": " from Bloomingdale's",
+      "shipping": "",
+      "rating": "5 out of 5 stars",
+      "reviews": "(14)",
+      "link": "https://www.google.com//url?q=https://www.bloomingdales.com/shop/product/karl-lagerfeld-paris-cotton-patch-shirt%3FID%3D4002882%26pla_country%3DUS&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI8gE&amp;usg=AOvVaw0nYXtBj0u38WoRc50BmLiB",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSjoBK87GWhKKd48Fg3Fk2xxkuMOx90hvDuCamMpzShrnP7LTies21H309Sfg&amp;usqp=CAE"
+   },
+   {
+      "title": "Wholesale Brand Name T-shirts 10 Tees (Mix Size)",
+      "price": "$80.00 used",
+      "shop": " from Thrift Vintage Fashion",
+      "shipping": "+$23.55 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(12)",
+      "link": "https://www.google.com//url?q=https://thriftvintagefashion.com/products/wholesale-brand-name-t-shirts%3Fvariant%3D40042829840544%26currency%3DUSD%26utm_medium%3Dproduct_sync%26utm_source%3Dgoogle%26utm_content%3Dsag_organic%26utm_campaign%3Dsag_organic&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI9gE&amp;usg=AOvVaw2XFPalLYP9pdnKux-3uijr",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRQVA8uHd3E4UJf4eiDx-3rXm_pjm27zjS7iUrBCNzVv5k6ITpyNbD7P-HMnWQ&amp;usqp=CAE"
+   },
+   {
+      "title": "Men's 5-Pack Essential Tee in Black-Grey-Blue-Light Blue-White | Size XXL | Abercrombie &amp; Fitch",
+      "price": "$75.00",
+      "shop": " from Abercrombie &amp; Fitch",
+      "shipping": "+$7.00 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(38)",
+      "link": "https://www.google.com//url?q=https://www.abercrombie.com/shop/us/p/5-pack-essential-relaxed-crew-tee-45012320%3Fseq%3D01%26source%3Dgoogleshopping&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI-gE&amp;usg=AOvVaw3A-YTrmAMorKnrUj7zw3Ts",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRXwSpWSD_ie13KCf_NQOUpQbeA-udiBonSMcat5-XsbAz6YHuWPDGcgrfzALALgt_w1JDvB64K&amp;usqp=CAE"
+   },
+   {
+      "title": "on Running Women's On-T Shirt",
+      "price": "$59.99",
+      "shop": " from On",
+      "shipping": "Free shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(19)",
+      "link": "https://www.google.com//url?q=https://www.on-running.com/en-us/products/on-t/womens/black&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI_QE&amp;usg=AOvVaw2zUwP3MJnq87GK6BEQ-DhF",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQOSn-C2v8jkCZb4tERXDtBo4gWlZOClKKtibfD_h6JaqS2okmdja7X8E4CnOG3Da732cz0RnRE&amp;usqp=CAE"
+   },
+   {
+      "title": "Wholesale College &amp; University T-shirts 5 Tees (Mix Size)",
+      "price": "$55.00 used",
+      "shop": " from Thrift Vintage Fashion",
+      "shipping": "+$21.85 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(13)",
+      "link": "https://www.google.com//url?q=https://thriftvintagefashion.com/products/wholesale-college-t-shirts%3Fvariant%3D40042716463264%26currency%3DUSD%26utm_medium%3Dproduct_sync%26utm_source%3Dgoogle%26utm_content%3Dsag_organic%26utm_campaign%3Dsag_organic&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIgQI&amp;usg=AOvVaw2Ke3qOA44xBCF0JAqI9WWg",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQe8C9jvbMbPfD5e-I8tVAiBFyoa0-RpGXisIGkC0DOEom8tAjFjC8L_cy1gU4&amp;usqp=CAE"
+   },
+   {
+      "title": "Rowan Asher Standard Cotton T-Shirt in Russet at Nordstrom, Size Small",
+      "price": "$55.00",
+      "shop": " from Nordstrom",
+      "shipping": "Free shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(31)",
+      "link": "https://www.google.com//url?q=https://www.nordstrom.com/s/6791395%3Fcolor%3DRUSSET%26country%3DUS%26currency%3DUSD%26utm_source%3Dgoogle%26utm_medium%3Dorganic%26utm_campaign%3Dseo_shopping%26utm_channel%3Dlow_nd_seo_shopping&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIhQI&amp;usg=AOvVaw1DyJcOHDtJ5NZG68ijL0TI",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTkjsKkjgNdunfSzwdPLXdButgcCOk__VVHz2986M0n7hLDufl6xkdFmBTH&amp;usqp=CAE"
+   },
+   {
+      "title": "Yacht &amp; Smith 9 Pack of Mens Cotton Slub Pocket Tees Tshirt, T-shirts in Bulk Wholesale, Colorful Packs (Medium)",
+      "price": "$54.81",
+      "shop": " from Amazon.com - Seller",
+      "shipping": "Free shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(1)",
+      "link": "https://www.google.com//url?q=https://www.amazon.com/Cotton-Pocket-T-Shirts-Wholesale-Colorful/dp/B08M4FD3NZ%3Fsource%3Dps-sl-shoppingads-lpcontext%26ref_%3Dfplfs%26psc%3D1%26smid%3DA2N43JHNO0NHQ7&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIiAI&amp;usg=AOvVaw3ZDuRZXVN8H27UtB8vXoB5",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRU7mUFP873_xPDN6kuTZo11bkx1-KI1UabjN3AMUmH5UGPTDzychRfngxU58KpA4otmiEO5QE&amp;usqp=CAE"
+   },
+   {
+      "title": "Porsche Motorsport Men's Black T-Shirt",
+      "price": "$52.00",
+      "shop": " from Amazon.com - Seller",
+      "shipping": "Free shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(18)",
+      "link": "https://www.google.com//url?q=https://www.amazon.com/Porsche-Motorsport-Mens-Black-T-Shirt/dp/B07XPGFX21%3Fsource%3Dps-sl-shoppingads-lpcontext%26ref_%3Dfplfs%26psc%3D1%26smid%3DA3GMROXBGVMIG5&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIjAI&amp;usg=AOvVaw0zSA8DPrHt3lTGxTT-Anr5",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQAnfeY9aWoR4uJRKj6VOL8KPq6l3r0gM5I_OfIBLUis4BjWX2csgfcrutCKOOzKJTMLn7ZcpIy&amp;usqp=CAE"
+   },
+   {
+      "title": "U.S. Military Surplus Black T-shirts 12 Pack New, Size: Medium",
+      "price": "$49.99",
+      "shop": " from Sportsman's Guide",
+      "shipping": "+$16.98 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(394)",
+      "link": "https://www.google.com//url?q=https://www.sportsmansguide.com/product/index%3Fa%3D1562223%26szc%3D002%26clrc%3D000&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIkAI&amp;usg=AOvVaw3-CRd-cXzxRyPQtN753fEm",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRIexSy6MW6be3cJKnfvZApwhp1yniWGWPUiWkRcKbFpZVxlsXBe3rJ3il_AYbYNqqiPvxL4owV&amp;usqp=CAE"
+   },
+   {
+      "title": "StudioSuits White Cotton Shirt",
+      "price": "$45.00",
+      "shop": " from StudioSuits",
+      "shipping": "+$10.00 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(30)",
+      "link": "https://www.google.com//url?q=https://www.studiosuits.com/products/white-cotton-shirt-full-sleeves%3Fcurrency%3DUSD%26variant%3D42428325396729%26utm_medium%3Dcpc%26utm_source%3Dgoogle%26utm_campaign%3DGoogle%2520Shopping&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIkwI&amp;usg=AOvVaw1bvUVEhlujAKqm9n6FGzMG",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTKEr4Vlw5tGmMxS189t52QhtFYLyyMhBB296fWNmpOWS_PzfdN3VhfJxctpw&amp;usqp=CAE"
+   },
+   {
+      "title": "Urban Diction 4 Pack Women's Loose V-Neck Stretch Short Sleeve T-shirts",
+      "price": "$44.99",
+      "shop": " from Amazon.com - Seller",
+      "shipping": "Free shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(1)",
+      "link": "https://www.google.com//url?q=https://www.amazon.com/Urban-Diction-Stretch-T-Shirts-X-Large/dp/B08R5DKRJD%3Fsource%3Dps-sl-shoppingads-lpcontext%26ref_%3Dfplfs%26psc%3D1%26smid%3DAMZOJJTXKLHMV&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIlgI&amp;usg=AOvVaw1nPCNn8aoky4U0F90hLtZ6",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQd_DIlvw2qWHMssUdtumh7QoOltP6fNGfrVhj0t4GKmLFoKfzsvpRk9Ir5zg&amp;usqp=CAE"
+   },
+   {
+      "title": "Polar Fill Logo T-Shirt - Heather Grey",
+      "price": "$42.00",
+      "shop": " from Skate Warehouse",
+      "shipping": "+$7.25 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(29)",
+      "link": "https://www.google.com//url?q=https://www.skatewarehouse.com/Polar_Fill_Logo_Tee/descpage-PLFLTS.html%3Ffrom%3Dgshop&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwImQI&amp;usg=AOvVaw1yb9MRF5jZF1wC1aZd3mQe",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRLg2w0VI4Zw1Dvvh6K8cwMi_6kUaCdWPKv0duETErhd2tiJwqFEBbRAoCO_gvJ6RTqKde7vyA&amp;usqp=CAE"
+   },
+   {
+      "title": "4 T Shirts for Mystery Box Womans Large",
+      "price": "$41.99",
+      "shop": " from illCurrency",
+      "shipping": "+$9.99 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(7)",
+      "link": "https://www.google.com//url?q=https://illcurrency.com/products/mystery-box%3Fvariant%3D29141920841781%26currency%3DUSD%26utm_medium%3Dproduct_sync%26utm_source%3Dgoogle%26utm_content%3Dsag_organic%26utm_campaign%3Dsag_organic%26srsltid%3DAR5OiO0LolN2FoXQCeWq7vXSqJjnMXXKKVylPhPUkoPjUOy6vLSNbLoHUF8&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwInAI&amp;usg=AOvVaw1IG-CZ6nw5eyLo3DZJt50b",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTRUEgOO4boTx6GdaQbfkam_ncU5v2vXmCDJU3mGPeBQQs1_dkWI5N6AjgFyiU&amp;usqp=CAE"
+   },
+   {
+      "title": "Mens K-Way Black Pure Edwing T-Shirt - Black",
+      "price": "$38.86",
+      "shop": " from Giglio.com",
+      "shipping": "",
+      "rating": "5 out of 5 stars",
+      "reviews": "(1)",
+      "link": "https://www.google.com//url?q=https://www.giglio.com/eng/clothing-men_t-shirt-k-way-k0074q0-73.html%3FcSel%3D002%26sSel%3D1054%26utm_term%3DK-WAY%2520T-shirt%26cur%3DUSA%26srsltid%3DAR5OiO2cPzhE9l6ov4nM9TR7CeiUr_a9QoDWE5jWDVnCU0f3ej-gbNuJnSo&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwInwI&amp;usg=AOvVaw2_vqgNopLgyiXO5oZggvPz",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT7ncthrmDyoTRY6M0rJhTaJoQPUe2rkNzn6YfK4O5mrPFG91qGtJX9XzZIc8ZQI3u8HTj1dJXI&amp;usqp=CAE"
+   },
+   {
+      "title": "Few Will Hunt, Mens T-Shirt Growth to The Grave Tee, Vintage Black / L",
+      "price": "$38.00",
+      "shop": " from Few Will Hunt",
+      "shipping": "+$4.37 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(17)",
+      "link": "https://www.google.com//url?q=https://fewwillhunt.com/products/growth-to-the-grave-tee%3Fcurrency%3DUSD%26variant%3D42082840609009%26utm_medium%3Dcpc%26utm_source%3Dgoogle%26utm_campaign%3DGoogle%2520Shopping&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIogI&amp;usg=AOvVaw36E6tz2584bcHTmDo21Gdb",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTMSry7jHGbgGEZ4_Es4U1tdB5n_jlpBzs7TVQSrnFBDI9j3I_uZ94SI26jBZcqV0I1LQBqBWdZ&amp;usqp=CAE"
+   },
+   {
+      "title": "Amazon Essentials Women's 3/4 Sleeve V-Neck Swing T-Shirt (Available in Plus Size), Pack of 2",
+      "price": "$37.80",
+      "shop": " from Amazon.com",
+      "shipping": "Free shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(1)",
+      "link": "https://www.google.com//url?q=https://www.amazon.com/Amazon-Essentials-Womens-2-Pack-Heather/dp/B09HSV75ZG%3Fsource%3Dps-sl-shoppingads-lpcontext%26ref_%3Dfplfs%26psc%3D1%26smid%3DATVPDKIKX0DER&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIpQI&amp;usg=AOvVaw2rsy7dn4kY1eci83THX5si",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSWk_4pn5soVzQdnfYJ-CaGGHjGhB3Ekbf-PZzuc3i5d7Jc0vgJo8kcYvQu1uM-SWZPsa2o2n66&amp;usqp=CAE"
+   },
+   {
+      "title": "Women's Fanatics Branded Black New Orleans Saints Freehand Team Long Sleeve V-Neck T-Shirt Size: Small",
+      "price": "$36.99",
+      "shop": " from NFL Shop",
+      "shipping": "+$6.98 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(2)",
+      "link": "https://www.google.com//url?q=https://www.nflshop.com/womens_fanatics_branded_black_new_orleans_saints_freehand_team_long_sleeve_v-neck_t-shirt/t-14599231%2Bo-7972%2Bd-120612580%2Bf-0905388%2Bz-9-1656587595%3Futm_medium%3Dcse%26_s%3Dak1944nfl-pla%26sku%3D18642841&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIqAI&amp;usg=AOvVaw3Sr0oYQtXzH4rYRRhtoica",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSEqWaFURAnq1QCmTeM7CrStwEHfLCe6FIWPKtj6rVqkn4_n7Pq_oXpyBNw0xpWLRxSIB6lqKNJ&amp;usqp=CAE"
+   },
+   {
+      "title": "Friday The 13th Voorhees Jersey Men's All-Over Print T-Shirt",
+      "price": "$35.10",
+      "shop": " from Amazon.com - Seller",
+      "shipping": "+$6.99 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(1)",
+      "link": "https://www.google.com//url?q=https://www.amazon.com/Friday-Voorhees-Jersey-T-Shirt-Heather/dp/B072R6TZKC%3Fsource%3Dps-sl-shoppingads-lpcontext%26ref_%3Dfplfs%26psc%3D1%26smid%3DA1SLP8ORVLRIRH&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIqwI&amp;usg=AOvVaw1VrOrG2jRTo6eUDtgd4rDQ",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcROMS9Sdw5yy-m1J0BTzw0RHipIoZB4qRxsruIY-lplOkMlwXJfXIUXuGQIbnOVgAv1rBANPC2m&amp;usqp=CAE"
+   },
+   {
+      "title": "The Mountain Originals Customized T-Shirt",
+      "price": "$35.00",
+      "shop": " from The Mountain",
+      "shipping": "+$7.50 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(32)",
+      "link": "https://www.google.com//url?q=https://www.themountain.com/mymountain-originals-apparel/%3Fsku%3D10361500560&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIrwI&amp;usg=AOvVaw2HHhvSpaNz-IIa6DI00v0h",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSgMuD4LJsyYAOSW4r9cR8zXwa8NGfgCgq9T7OGkmSh2oNjB84sN4YBt6SfgJClMxY_yyDmRHrR&amp;usqp=CAE"
+   },
+   {
+      "title": "God Aint Petty But I Am Unisex Tee All Colors, Black /Rainbow / 4XL",
+      "price": "$35.00",
+      "shop": " from God Ain't Petty But I Am",
+      "shipping": "Free shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(2)",
+      "link": "https://www.google.com//url?q=https://www.godaintpetty.com/products/god-aint-petty-unisex-tee-limited-edition%3Fcurrency%3DUSD%26variant%3D42907795226872%26utm_medium%3Dcpc%26utm_source%3Dgoogle%26utm_campaign%3DGoogle%2520Shopping&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIsgI&amp;usg=AOvVaw2ZiY9G8TocGrliQ8hdJfRs",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSyOoldXuTGY0FQmYvtixjnBxVSCJf_hPxaItH5nA8tf6oFNu4DFH_n6pXIo-U&amp;usqp=CAE"
+   },
+   {
+      "title": "Howler Brothers Roper T-Shirt",
+      "price": "$35.00",
+      "shop": " from Backcountry.com",
+      "shipping": "+$8.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(9)",
+      "link": "https://www.google.com//url?q=https://www.backcountry.com/howler-brothers-select-t-shirt-mens%3FCMP_SKU%3DHBRD013%26MER%3D0406%26skid%3DHBRD013-ROPANTBLA-XXL&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwItQI&amp;usg=AOvVaw0Lzt1KLtmWA_b1kyzrmJdx",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTQ2_z9mcMib2g9Dny5ushJ7omRy82D2fEV4YmMX-7mXRjUvjGIHbwBQN4uNxQXUU4lWKnhrxg&amp;usqp=CAE"
+   },
+   {
+      "title": "The Mountain Summoning The Storm Customized T-Shirt",
+      "price": "$35.00",
+      "shop": " from The Mountain",
+      "shipping": "+$7.50 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(9)",
+      "link": "https://www.google.com//url?q=https://www.themountain.com/mymountain-summoning-the-storm-apparel/%3Fsku%3D10132106224&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIuQI&amp;usg=AOvVaw2CPX2_d6tQanpuu5LlpQnF",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSfNyaemnATS6GEZDT-kPhEMova5WsZ8eSFvYwMHuZmtzQhe6yziVxmG8CqqJbeiGygboTkbOg&amp;usqp=CAE"
+   },
+   {
+      "title": "Men's Tupac Old School Short Sleeve Tee Shirt Print in Black Size XL by Fashion Nova",
+      "price": "$34.99",
+      "shop": " from Fashion Nova",
+      "shipping": "+$6.99 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(5)",
+      "link": "https://www.google.com//url?q=https://www.fashionnova.com/products/tupac-old-school-short-sleeve-tee-black%3Fvariant%3D39254631678076%26flow_enabled%3Dfalse&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIvAI&amp;usg=AOvVaw2PfV50VA6pJm8Ct50JbrIF",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSxv0SQJ2ahABw2Ji9jBRzov4ZbsPuPPfxf4fb1h7j55DQRMXVU9Az9cXUgVGRhw0wyL3ZZJQ&amp;usqp=CAE"
+   },
+   {
+      "title": "Nike Canada Legend T-Shirt 2022 - 2XL",
+      "price": "$34.99",
+      "shop": " from World Soccer Shop",
+      "shipping": "+$9.99 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(1)",
+      "link": "https://www.google.com//url?q=https://www.worldsoccershop.com/shop/details/nike-canada-legend-t-shirt-2022_A1073444%3Fsku%3D8349911%26utm_source%3Dgoogle%26utm_medium%3DFree_Product_Listings%26utm_campaign%3DT-Shirts%2B%253E%2BReplica%2B%253E%2BA1073444%26utm_keyword%3DNike%2BCanada%2BLegend%2BT-Shirt%2B2022%2B-%2B2xl&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIvwI&amp;usg=AOvVaw0DjAtIeRmvupAbsBiCt30t",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSmS0ejg3xQ7GiISpwfHVyVDOUwVXPjlKFM9Je14bEo1ze4wbs99ffOg-L6ZS8sxCDy0zX9lek&amp;usqp=CAE"
+   },
+   {
+      "title": "A'ja Wilson: Signature T-Shirt | PWRFWD Black / 2XL",
+      "price": "$34.74",
+      "shop": " from shop.pwrfwd.co",
+      "shipping": "+$5.99 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(1)",
+      "link": "https://www.google.com//url?q=https://shop.pwrfwd.co/products/aja-wilson-signature-t-shirt%3Fvariant%3D42188614271234%26currency%3DUSD%26utm_medium%3Dproduct_sync%26utm_source%3Dgoogle%26utm_content%3Dsag_organic%26utm_campaign%3Dsag_organic&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIwwI&amp;usg=AOvVaw1Ku73ugvbzj-airqaDXNGU",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSZUjEkIkM9RT0hqAydL4rt4h2YsTXQt80VFY_QjHk2vEiGUyb2_1KS5opRiiO2LQPLBgQFfGTp&amp;usqp=CAE"
+   },
+   {
+      "title": "Jm Collection Women's Printed T-Shirt, Size Medium, Black",
+      "price": "$34.50",
+      "shop": " from Macy's",
+      "shipping": "+$10.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(25)",
+      "link": "https://www.google.com//url?q=https://www.macys.com/shop/product/jm-collection-3-4-sleeve-printed-top-created-for-macys%3FID%3D5701553%26pla_country%3DUS%26CAGPSPN%3Dpla&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIxgI&amp;usg=AOvVaw2E5ntAW8CAUpZgT_Qh18Z6",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTJOKpck52iUcrxtR2WLRiLL8H-b49LNFNpMgiM8G_KAt3a0qLXe4EAbsBLfg&amp;usqp=CAE"
+   },
+   {
+      "title": "Unique 425 Rolled Cuff Straight Bottom Tees Black / XXLarge",
+      "price": "$34.00",
+      "shop": " from YoungLA",
+      "shipping": "+$4.99 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(26)",
+      "link": "https://www.google.com//url?q=https://www.youngla.com/products/425-straight-bottom-404%3Fvariant%3D41706539745468%26currency%3DUSD%26utm_medium%3Dproduct_sync%26utm_source%3Dgoogle%26utm_content%3Dsag_organic%26utm_campaign%3Dsag_organic&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIygI&amp;usg=AOvVaw1HXNckxU7EdSZobc42u8Xl",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTS1fE8Poz-y9YHsQV3IimlpXDiNLqINW6ngJDjE6f67rEQ10dagi7nVFOCVIpHWrOd8hPlTSI&amp;usqp=CAE"
+   },
+   {
+      "title": "Radial Men's Rip It T-Shirt - Bison - Size 2XL - Blue Collar Apparel - Troll Co.",
+      "price": "$33.50",
+      "shop": " from Troll Co. Clothing",
+      "shipping": "+$5.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(5)",
+      "link": "https://www.google.com//url?q=https://trollcoclothing.com/products/rip-it-tee%3Fvariant%3D39590784106585%26srsltid%3DAR5OiO2OYsl_M58oXcDx6P1CMOe0Y9ZBwYWQlujJnDYsGudw-P73qLbBdwQ&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIzQI&amp;usg=AOvVaw2WSpW-_bpBzqI-ZeaXV8UC",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTfoM77MTCcItrFGix8bNxb0E-r3SCufIU0Qn94_TBUTBYS0gcIXRPslHnguao7DfYaRvhqiDM&amp;usqp=CAE"
+   },
+   {
+      "title": "Legendary Whitetails Men's Backcountry Long Sleeve Camo T-Shirt - Casual Crewneck Pullover Regular Fit",
+      "price": "$32.99",
+      "shop": " from Amazon.com",
+      "shipping": "Free shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(60)",
+      "link": "https://www.google.com//url?q=https://www.amazon.com/Legendary-Whitetails-Backcountry-T-Shirt-Large/dp/B0846PRTDH%3Fsource%3Dps-sl-shoppingads-lpcontext%26ref_%3Dfplfs%26psc%3D1%26smid%3DATVPDKIKX0DER&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI0AI&amp;usg=AOvVaw0zzIr4YOmQSNEFq-n_Fozm",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRg8mX7Xzz7WolBlDpN3wQO_WMvuSaP7s4itmxWk07eInYbrve7wVBg_S1YBk8&amp;usqp=CAE"
+   },
+   {
+      "title": "Def Leppard - Mens Hysteria 88 T-Shirt",
+      "price": "$32.95",
+      "shop": " from Amazon.com - Seller",
+      "shipping": "Free shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(10)",
+      "link": "https://www.google.com//url?q=https://www.amazon.com/Leppard-1980s-Heavy-Hysteria-T-Shirt/dp/B07P15R915%3Fsource%3Dps-sl-shoppingads-lpcontext%26ref_%3Dfplfs%26psc%3D1%26smid%3DAR9L04BN9XTYT&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI1AI&amp;usg=AOvVaw2GSgsIbud3n5W34oi71ENI",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQdOK6bqi9JbxoOCVy1DEPHU1OVBbdxtUznuoEpEkaHO3nmRIQv4XEadxWwl7HutILQtzNLTS8&amp;usqp=CAE"
+   },
+   {
+      "title": "1 Custom Logo Women's Super-T T-Shirt 100% Combed Cotton - Blue M",
+      "price": "$32.95",
+      "shop": " from Lands' End Business Outfitters",
+      "shipping": "+$9.95 shipping",
+      "rating": "4 out of 5 stars",
+      "reviews": "(6)",
+      "link": "https://www.google.com//url?q=https://business.landsend.com/Men/Activewear/Tops/Unisex-Custom-Logo-Long-Sleeve-Super-T-T-Shirt/p/1970116%3F%26quantityPricing%3DTrue&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI2AI&amp;usg=AOvVaw3CObX4ZwCjXL-hhk6ph8Lk",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRX4C325RUZqoJ0SqD4x_nJ5bzdFQH7oowrFdj-oev7q8tvawUvSzBaXT0vpv9cv-AyHT-uDBk&amp;usqp=CAE"
+   },
+   {
+      "title": "Men's Troll Co Alado T-Shirt",
+      "price": "$32.00",
+      "shop": " from Scheels",
+      "shipping": "+$7.99 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(39)",
+      "link": "https://www.google.com//url?q=https://www.scheels.com/p/mens-troll-co-alado-t-shirt/67130659440.html%3Futm_source%3Dgoogle%26utm_medium%3Dcpc%26utm_campaign%3Dunpaidlistings%26srsltid%3DAR5OiO0TKUhQXZpTafkLtftQXTbPRtlc2ai0AQK--6OL4cFR-t0P5UqbL3Q&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI2wI&amp;usg=AOvVaw0iA34PsmGHF7zp7k1_SuQK",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSqYWEMp2eN1hZwFF1eErcVj9LNyTFe5y6ZGjIcFRjH1UlQ9UJcaMt-uUeiiStQ3F2HV7XS8w0w&amp;usqp=CAE"
+   },
+   {
+      "title": "USA Will Be T-Shirt from Homage. | Light Blue | Vintage Apparel from Homage.",
+      "price": "$32.00",
+      "shop": " from Homage.com",
+      "shipping": "+$9.25 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(10)",
+      "link": "https://www.google.com//url?q=http://www.homage.com/products/usa-will-be%3Futm_content%3Dpop_culture_pla&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI3wI&amp;usg=AOvVaw0jjCI76v4EcS_P6Uiflw1_",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQNqsukhR8jUIknfgs_p1V8o6v8sbh1LgTxux9GuESb_y79iQDDgD1fqt88cQBGE_mx_SMOCcRj&amp;usqp=CAE"
+   },
+   {
+      "title": "Ostrich Imports Six Pac Tee Male Charcoal T-Shirt Small",
+      "price": "$32.00",
+      "shop": " from The Chivery",
+      "shipping": "+$5.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(2)",
+      "link": "https://www.google.com//url?q=https://www.thechivery.com/products/six-pac-tee%3Fvariant%3D31822958657603&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI4gI&amp;usg=AOvVaw1kPW4uiGs91IFEENXASM3i",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQt0piMbMuGcwXmfo6H1coVE93OmTxfklXzeA39wqWY9hJHW-gH5leVZMHttkQaQE-zCLLggLNu&amp;usqp=CAE"
+   },
+   {
+      "title": "Ostrich Imports Who You Gonna Call 2.0 Tee Female White T-Shirt Small",
+      "price": "$32.00",
+      "shop": " from The Chivery",
+      "shipping": "+$5.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(3)",
+      "link": "https://www.google.com//url?q=https://www.thechivery.com/products/who-you-gonna-call-2-0-tee-women%3Fvariant%3D41084256682179&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI5QI&amp;usg=AOvVaw2T6PWK0v_js6nA4M1cKLsp",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTwfgZdbhAK-btWwivG3EvsfqgJM5JgLMRHjM2AEpAV3nd9woHENUcboC-eqqBeN5RY3J0yz5c&amp;usqp=CAE"
+   },
+   {
+      "title": "Thrasher Crow Black T-Shirt - Size: M - Men's Clothing - T-shirts - Graphic - at Zumiez",
+      "price": "$31.95",
+      "shop": " from Zumiez",
+      "shipping": "+$6.95 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(8)",
+      "link": "https://www.google.com//url?q=https://www.zumiez.com/thrasher-crow-black-t-shirt.html%3Futm_source%3Dgoogle_shopping%26utm_medium%3Dcpc%26utm_term%3D1045985%26utm_campaign%3Dgoogle_shopping%26srsltid%3DAR5OiO21C4Bqud_TZHSvH67Wnne6iJ6CdyQK9E7OJrnweKKrrKhRmBaww-Q&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI6AI&amp;usg=AOvVaw2VDLVhA4XJ9RyYPxAki4hl",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSu45CylCx-Cao1FLs4-iQ8RCmQOXVRj49ttI_0DaTdBE8G-TAc8tbndleNbJy49Al2LQ27qjEF&amp;usqp=CAE"
+   },
+   {
+      "title": "Men's Mesh T-Shirt Dark Charcoal Heather Regular Size XL",
+      "price": "$30.97",
+      "shop": " from Banana Republic Factory",
+      "shipping": "+$7.00 shipping",
+      "rating": "4 out of 5 stars",
+      "reviews": "(2)",
+      "link": "https://www.google.com//url?q=https://bananarepublicfactory.gapfactory.com/browse/product.do%3Fpid%3D428650031%26vid%3D1&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI6wI&amp;usg=AOvVaw1a8w0YMFuoJ_d5ZFHeCdU0",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcROGVNqq0wZdbRnRKp-FwjPRFeuU3Bpci4HgZRiF6NnEAwehyF8Rkn1YItJ&amp;usqp=CAE"
+   },
+   {
+      "title": "Gymreapers Basic Shirt - USA",
+      "price": "$30.00",
+      "shop": " from Gymreapers",
+      "shipping": "+$19.49 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(14)",
+      "link": "https://www.google.com//url?q=https://www.gymreapers.com/products/gymreapers-basic-shirt-usa%3Fcurrency%3DUSD%26utm_medium%3Dcpc%26utm_source%3Dgoogle%26utm_campaign%3DGoogle%2520Shopping&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI7gI&amp;usg=AOvVaw35vwaI5Iq2ddGD6FWDS5Fb",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcS-cH0gjzcbdU4FZFHH2Q8kqmkXtL5oDSdJEs7_l4AJFS8DIQPoPvhQuD9AFVfSQd8TE8znlH7z&amp;usqp=CAE"
+   },
+   {
+      "title": "ASOS Design Long Sleeve Fitted Shirt in Stretch Cotton in White",
+      "price": "$30.00",
+      "shop": " from ASOS",
+      "shipping": "+$7.00 shipping",
+      "rating": "4 out of 5 stars",
+      "reviews": "(220)",
+      "link": "https://www.google.com//url?q=https://www.asos.com/us/asos-design/asos-design-long-sleeve-fitted-shirt-in-stretch-cotton-in-white/prd/22733864%3Faffid%3D26521%26freelisting%3Dyes&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI8QI&amp;usg=AOvVaw1miVYsNCCb2QcpsvrJsQOC",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTqLCi3sf9D1ORc3ApxdBkYp6gVr2_oMUGJVn7rjyDNx6fpNAZ9fw9SnAkl&amp;usqp=CAE"
+   },
+   {
+      "title": "Men's One Piece Group Short Sleeve Tee Shirt Print in Black Size 2XL by Fashion Nova",
+      "price": "$29.99",
+      "shop": " from Fashion Nova",
+      "shipping": "+$6.99 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(5)",
+      "link": "https://www.google.com//url?q=https://www.fashionnova.com/products/one-piece-group-short-sleeve-tee-black%3Fvariant%3D39254524362876%26flow_enabled%3Dfalse&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI9AI&amp;usg=AOvVaw0gfHQ5m7DTN7-CDP71_GTS",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSL2zPNC-toFS7UWZ1L0iZKVmwt3zN0zDxgNje_nU9QC5jFSG6fw1DpysQbnqSpP2vDZy39nX4&amp;usqp=CAE"
+   },
+   {
+      "title": "Combat Iron Apparel Clean Up Crew Operator Skull Men's Patrotic T-Shirt, M / White",
+      "price": "$29.99",
+      "shop": " from Combat Iron Apparel Co.",
+      "shipping": "+$7.99 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(43)",
+      "link": "https://www.google.com//url?q=https://combatironapparel.com/products/mens-premium-t-shirt-clean-up-crew-operator-skull-1%3Fcurrency%3DUSD%26variant%3D42841778979043%26utm_medium%3Dcpc%26utm_source%3Dgoogle%26utm_campaign%3DGoogle%2520Shopping%26srsltid%3DAR5OiO3uQ9dTIbchuP-qIw09AYOlu_2qS4PXHPbKBSIVFZYZDvxHFMCVSsw&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI9wI&amp;usg=AOvVaw06VKML49JtNi1NcT2H1bjj",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT48S_Zxwjo0ax8w668StEdf9p1Pxy63MkxRaLgyFbMJClWvSZE_iDIb0HAj2-0G8vYgr_TKWk&amp;usqp=CAE"
+   },
+   {
+      "title": "Women's Fanatics Branded Navy Detroit Tigers X-Ray V-Neck T-Shirt Size: 3XL",
+      "price": "$29.99",
+      "shop": " from MLB Shop",
+      "shipping": "+$6.98 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(1)",
+      "link": "https://www.google.com//url?q=https://www.mlbshop.com/womens_fanatics_branded_navy_detroit_tigers_x-ray_v-neck_t-shirt/t-14111905%2Bo-5665%2Bd-120601920%2Bf-4111447%2Bz-9-211263838%3Futm_medium%3Dcse%26_s%3Dak1944mlb-pla%26sku%3D10396292&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI-wI&amp;usg=AOvVaw1JFfa4RWuEEuy8QLFOu5vf",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSivxG356SlW2swfQ-c0YSRSusVanzvXWGbJTDUqPpn1QQ3SD6auUG4QeD8gVHm5Ve4v6zN4qk&amp;usqp=CAE"
+   },
+   {
+      "title": "Women's Take Me Along Baroque Shirt Combo in White Size Small by Fashion Nova",
+      "price": "$29.99",
+      "shop": " from Fashion Nova",
+      "shipping": "+$6.99 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(3)",
+      "link": "https://www.google.com//url?q=https://www.fashionnova.com/products/take-me-along-baroque-shirt-white-combo%3Fvariant%3D39252339720316%26flow_enabled%3Dfalse&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI_gI&amp;usg=AOvVaw1GC1mhtpPcn0WJIf3jbbuw",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRM9PI1EPbqWVGtaKTyx-zlynX7ZX1YlCVrBVHgBU4UEqFfWpvdN2h5txUWSLz6Sg3V991B5g&amp;usqp=CAE"
+   },
+   {
+      "title": "Women's She's A Real One Shirt Combo in Brown Size XL by Fashion Nova",
+      "price": "$29.99",
+      "shop": " from Fashion Nova",
+      "shipping": "+$6.99 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(2)",
+      "link": "https://www.google.com//url?q=https://www.fashionnova.com/products/shes-a-real-one-shirt-brown-combo%3Fvariant%3D39252328054908%26flow_enabled%3Dfalse&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIgQM&amp;usg=AOvVaw3geSzYecirRCh5JDHxuBoS",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSFrZY78rBU6wwvUdI8ViQyHE-jQ3HgkpTbVpuiucJGLuk0D72DVUC1Ya-0Xw&amp;usqp=CAE"
+   },
+   {
+      "title": "Combat Iron Apparel Clean Up Crew Operator Skull Men's Patrotic T-Shirt, S / Miami Black",
+      "price": "$29.99",
+      "shop": " from Combat Iron Apparel Co.",
+      "shipping": "+$7.99 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(43)",
+      "link": "https://www.google.com//url?q=https://combatironapparel.com/products/mens-premium-t-shirt-clean-up-crew-operator-skull-1%3Fcurrency%3DUSD%26variant%3D42841851920611%26utm_medium%3Dcpc%26utm_source%3Dgoogle%26utm_campaign%3DGoogle%2520Shopping%26srsltid%3DAR5OiO1aAwULI1-95SUvSmk7j0QXIOLTGubaJFk0kF7447hCzLKjob4mYU4&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIhAM&amp;usg=AOvVaw2345mhrFmPE3v-MZbHUCGQ",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSakVotYWjL-vMOu664DLSHNAKXkL_6-2bivQ2Vej7vpIqJdt4PqCZK7hirCbZhv0oWeC4ishtH&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style USMC for Country, &amp; Corps Men's T-Shirt",
+      "price": "$29.95",
+      "shop": " from Gruntstyle",
+      "shipping": "+$6.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(25,271)",
+      "link": "https://www.google.com//url?q=https://gruntstyle.com/products/usmc-for-country-corps&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIiAM&amp;usg=AOvVaw3LHY_rBQN_ImwUlDbklP4H",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQjEtjaOkZaBfMQPeWphVqWHvssq3QbawJ4GhzSIhVNTUGmkrz3DJwiUYKrrg&amp;usqp=CAE"
+   },
+   {
+      "title": "Primitive Dirty P Paisley Pink T-Shirt - Size M - Pink - Skate Graphic T-shirts - Men's Clothing at Zumiez",
+      "price": "$29.95",
+      "shop": " from Zumiez",
+      "shipping": "+$6.95 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(103)",
+      "link": "https://www.google.com//url?q=https://www.zumiez.com/primitive-dirty-p-paisley-pink-t-shirt.html%3Futm_source%3Dgoogle_shopping%26utm_medium%3Dcpc%26utm_term%3D1116111%26utm_campaign%3Dgoogle_shopping%26srsltid%3DAR5OiO1pF2cO-u3byvVczao2ZveXbkBjmWszI6Aut9G6l-8mCq14fhozrNc&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIjAM&amp;usg=AOvVaw1RPmzyLKejiBGxMl3gdMxu",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSebUVIHDxEDrHx87Rxt-B3mkBJ501PrvK4C9cIB5IPbajloReZezD30tHtV6_t7qyKTIYhgPmJ&amp;usqp=CAE"
+   },
+   {
+      "title": "Lucky 13 Mens Dead Skull T-Shirt, Men's, Size: Large, Black",
+      "price": "$29.95",
+      "shop": " from Amazon.com - Seller",
+      "shipping": "Free shipping",
+      "rating": "4 out of 5 stars",
+      "reviews": "(11)",
+      "link": "https://www.google.com//url?q=https://www.amazon.com/Lucky-13-Mens-Skull-T-Shirt/dp/B01JQG0102%3Fsource%3Dps-sl-shoppingads-lpcontext%26ref_%3Dfplfs%26psc%3D1%26smid%3DA1XZS1CPTJIIIZ&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIjwM&amp;usg=AOvVaw2rPhyzrWpS6VnKNlyBBqEH",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQfVeLJdvQfo_DMgHmLaczpRiIgO_CjVfnrBz7hOn57asI4TyYsww_5ToF2O4AyK8c64udrgg&amp;usqp=CAE"
+   },
+   {
+      "title": "Sullen Hold Still Snake Panther Traditional Tattoos Art Urban T Shirt SCM3037 - 5XL",
+      "price": "$29.95",
+      "shop": " from eBay - fearlessapparel",
+      "shipping": "Free shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(6)",
+      "link": "https://www.google.com//url?q=https://www.ebay.com/itm/143814505492%3Fchn%3Dps%26mkevt%3D1%26mkcid%3D28%26var%3D442996777822%26srsltid%3DAR5OiO02hF5MSdY0nF1U8o3i0xLDmglAEUx8zq6aGK-97dcrElqAuuKkCXk&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIkwM&amp;usg=AOvVaw0nW5I-MWAzpytd5tHjcfJP",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSpPlAW0NI7HRicZlYBB0OCEPgp8Bn4a9cYmD5cIzKcfaIDY_3UVnqUcUltQQ&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style USN- Salty 2.0 Men's T-Shirt",
+      "price": "$29.95",
+      "shop": " from Gruntstyle",
+      "shipping": "+$6.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(25,271)",
+      "link": "https://www.google.com//url?q=https://gruntstyle.com/products/usn-salty-2-0&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIlgM&amp;usg=AOvVaw0oyP1_VnhZCIFGvNIPItS6",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSQbAAxqTJDx1lpf0IVXiv77N2pwIHfPTn7vqqPtmALHGpkT5vosf0U8FNHDlpBjT5TmHWIpH4F&amp;usqp=CAE"
+   },
+   {
+      "title": "Men's Badge of Honor Long Sleeve T-Shirt in White, Size XL by Sullen | Inkedshop",
+      "price": "$29.95",
+      "shop": " from Inked Shop",
+      "shipping": "+$7.10 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(73)",
+      "link": "https://www.google.com//url?q=https://www.inkedshop.com/products/mens-badge-of-honor-ls-tee-by-sullen-clothing-options%3Fvariant%3D12981677686861&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwImgM&amp;usg=AOvVaw19xzC2_rooZNF4Ff5ZXNxI",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSbQoah6JoT9sf8cR0xuCOxmoRQt4P--yhbGd3r0W-3Jp1oRelbuGFTy_zdGj4&amp;usqp=CAE"
+   },
+   {
+      "title": "Alfani Crewneck T-Shirt, Created for Macy's - Deep Black - Size L",
+      "price": "$29.50",
+      "shop": " from Macy's",
+      "shipping": "",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(22)",
+      "link": "https://www.google.com//url?q=https://www.macys.com/shop/product/alfani-crewneck-t-shirt-created-for-macys%3FID%3D13870497%26pla_country%3DUS%26CAGPSPN%3Dpla&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwInQM&amp;usg=AOvVaw17bu2bwrF2FoK9ZCIiMriv",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSYF5tjU6j33HFJoubULNoukgvGFtSyY2hZUsEKyGmHimvJ8h9rLMAyYA4Ceg&amp;usqp=CAE"
+   },
+   {
+      "title": "Women's Love Print Top - White, Size XL by Venus",
+      "price": "$29.00",
+      "shop": " from Venus",
+      "shipping": "+$7.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(216)",
+      "link": "https://www.google.com//url?q=https://www.venus.com/viewproduct.aspx%3FBRANCH%3D7~63~%26ProductDisplayID%3D39561%26clr%3DWH&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIoQM&amp;usg=AOvVaw0dxQGGe01MNtNtaHXS2v9G",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRE9peICFKcIroW3vN416qxjiC1VzWQ3ugGX94FXjjuujwQgXsOQw0fylke3g&amp;usqp=CAE"
+   },
+   {
+      "title": "Simply Southern Women's Hey Boo Halloween Black Long Sleeve T-Shirt",
+      "price": "$28.99",
+      "shop": " from Amazon.com - Seller",
+      "shipping": "Free shipping",
+      "rating": "4 out of 5 stars",
+      "reviews": "(10)",
+      "link": "https://www.google.com//url?q=https://www.amazon.com/Simply-Southern-Womens-Halloween-Sleeve/dp/B0B94R74Y2%3Fsource%3Dps-sl-shoppingads-lpcontext%26ref_%3Dfplfs%26psc%3D1%26smid%3DA11L1V8GIH1B7V&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIpAM&amp;usg=AOvVaw0-mw0dy3euSAoQ1xB3cwHu",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSKOYiTbohX-O4WQR4OtKlwYWnTWA6dz3TQ3Hf6kYO-qy8W37uctg2RySJKCu1Vzzd1Eq-oZ_CG&amp;usqp=CAE"
+   },
+   {
+      "title": "Mad Engine Spengler Long Sleeve Costume T-Shirt with Back Print",
+      "price": "$28.95",
+      "shop": " from Amazon.com - Seller",
+      "shipping": "Free shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(1)",
+      "link": "https://www.google.com//url?q=https://www.amazon.com/Mad-Engine-Graphic-Ghostbusters-Costume/dp/B075KRTVDN%3Fsource%3Dps-sl-shoppingads-lpcontext%26ref_%3Dfplfs%26psc%3D1%26smid%3DAWTVN3BNE3NEZ&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIpwM&amp;usg=AOvVaw1paQLEDEzmcHG-StnoDS1_",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSDO5LEmio-adHOzNJ_xrZ26bNEo0WiXTndMPWKre0DGKqz_gK_Oxiymgjnfg&amp;usqp=CAE"
+   },
+   {
+      "title": "Give Thanks Rust Comfort Color Graphic Tee, Women's Small - Pink Lily Boutique",
+      "price": "$28.00",
+      "shop": " from Pink Lily",
+      "shipping": "+$6.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(2)",
+      "link": "https://www.google.com//url?q=https://pinklily.com/products/give-thanks-rust-comfort-color-graphic-tee%3Fvariant%3D39942201999415&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIqwM&amp;usg=AOvVaw0SwOFUlkbG3_qY759j-Pgo",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRAFa65phq2TOtn0aa_8B6broxjNHgoGwh8i0dbaCkkbdhFZIOnYh0S5vvhrUQt8itZ73krGzw&amp;usqp=CAE"
+   },
+   {
+      "title": "The Basic Tee - Sale Colors | Jungmaven Hemp Clothing",
+      "price": "$28.00",
+      "shop": " from Jungmaven",
+      "shipping": "+$7.00 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(16)",
+      "link": "https://www.google.com//url?q=https://jungmaven.com/products/basic-tee-sale-colors-1%3Fvariant%3D42383457321158%26currency%3DUSD%26utm_medium%3Dproduct_sync%26utm_source%3Dgoogle%26utm_content%3Dsag_organic%26utm_campaign%3Dsag_organic&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIrgM&amp;usg=AOvVaw1TT5JPTPoGSuqbYmvH72iR",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ-8g6jAF5N_2WxlVcVffp2S30aqJS4SJ9iLFQdzs2WOLjx4XVR2lQwOGtQDMoSEG0dwISVj_I&amp;usqp=CAE"
+   },
+   {
+      "title": "The Basic Tee - Sale Colors | Jungmaven Hemp Clothing Ether Blue / S",
+      "price": "$28.00",
+      "shop": " from Jungmaven",
+      "shipping": "+$7.00 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(16)",
+      "link": "https://www.google.com//url?q=https://jungmaven.com/products/basic-tee-sale-colors-1%3Fvariant%3D42383457124550%26currency%3DUSD%26utm_medium%3Dproduct_sync%26utm_source%3Dgoogle%26utm_content%3Dsag_organic%26utm_campaign%3Dsag_organic&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIsQM&amp;usg=AOvVaw0h7uJzM2dv2s5-iXMMIkW7",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQVowxXtygtOC2e2nPOGx0eVQoulaYnozlmGtyhTFIyEIi_mUwQfsXnU0xv9Ld5dKg69FR9R2g&amp;usqp=CAE"
+   },
+   {
+      "title": "Joe Blow Truck 2x Blue Dusk Adult Unisex T-Shirt",
+      "price": "$27.99",
+      "shop": " from Amazon.com - Seller",
+      "shipping": "Free shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(9)",
+      "link": "https://www.google.com//url?q=https://www.amazon.com/Joe-Blow-Dealer-T-Shirt-XX-Large/dp/B01B0WUI76%3Fsource%3Dps-sl-shoppingads-lpcontext%26ref_%3Dfplfs%26psc%3D1%26smid%3DA2GDGDZGWVR0TV&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwItAM&amp;usg=AOvVaw2xgmm3yQtJGPNE1hbuW6lM",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ4elMc8qwgJarICYbHR_YKDaRH4hgWbvoeMtkk_nllNlNBG4zKAQi6BsaorPnJJo9RSVygFYqs&amp;usqp=CAE"
+   },
+   {
+      "title": "BRCC Vintage Logo T-Shirt L / Vintage Black | Black Rifle Coffee Company",
+      "price": "$27.99",
+      "shop": " from Black Rifle Coffee Company",
+      "shipping": "+$7.95 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(6)",
+      "link": "https://www.google.com//url?q=https://www.blackriflecoffee.com/products/vintage-brcc-logo-t-shirt%3Fvariant%3D39890894749805%26currency%3DUSD%26utm_medium%3Dproduct_sync%26utm_source%3Dgoogle%26utm_content%3Dsag_organic%26utm_campaign%3Dsag_organic&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIuAM&amp;usg=AOvVaw3xe5fRtaKTiSBd81VDjKWN",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTUIEM6rFsInR5FNTNs_MAkxFsqMTnhkevj1q4UfSl4OZdp7H5pGoedNINuA9Ky_5PHI5VEukg&amp;usqp=CAE"
+   },
+   {
+      "title": "A-Lab Trip on This Black T-Shirt - Size: M - Men's Clothing - T-shirts - Graphic - at Zumiez",
+      "price": "$27.99",
+      "shop": " from Zumiez",
+      "shipping": "+$6.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(2)",
+      "link": "https://www.google.com//url?q=https://www.zumiez.com/a-lab-trip-on-this-black-t-shirt.html%3Futm_source%3Dgoogle_shopping%26utm_medium%3Dcpc%26utm_term%3D949523%26utm_campaign%3Dgoogle_shopping%26srsltid%3DAR5OiO37REVb9qEj4SPa6pjqgU2NFz3gLT3HaBrptU2187BbagUXWcvSQKA&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIuwM&amp;usg=AOvVaw1mevT2tE2bUjkumKJIcm5v",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTDdu0XOwXBgv1-sRDM_oA4t-IZMLXmo9nH54V2vw6F5ZGX7Ff0WvWtiKMW&amp;usqp=CAE"
+   },
+   {
+      "title": "Banana Republic Factory Men's Vintage T-Shirt Blue Regular Size XXL",
+      "price": "$27.97",
+      "shop": " from Banana Republic Factory",
+      "shipping": "+$7.00 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(9)",
+      "link": "https://www.google.com//url?q=https://bananarepublicfactory.gapfactory.com/browse/product.do%3Fpid%3D435374031%26vid%3D1&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIvgM&amp;usg=AOvVaw1lJDAht1Hy2ACHJY7nKtn6",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR29OjV8nvIno_1YLeb3X0fsIzSzfASVD_BRhHCjBRDB8GRR7L2m7KjKLpOfA&amp;usqp=CAE"
+   },
+   {
+      "title": "Death Valley Cotton Poly Slash Tee in Black, Size 30, Plus Size",
+      "price": "$27.30",
+      "shop": " from Torrid",
+      "shipping": "+$6.00 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(4)",
+      "link": "https://www.google.com//url?q=https://www.torrid.com/product/death-valley-cotton-poly-slash-tee/18903977.html%3Fsrsltid%3DAR5OiO1pQTOk6vtAMXHXvWcAZ9gH4WRfbATJ0IdC8XoJsYCgU7cfDw4kOtg&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIwQM&amp;usg=AOvVaw2aIIwPWYKGkAAZ6eU472OP",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSXKCiGxCVRxqqUmJxFoxR-9Guds7DXggu8Jqw2_A9idVo7haSieeCetxGiCQ&amp;usqp=CAE"
+   },
+   {
+      "title": "Thread Tank Home Roots State Tennessee TN Men's Modern Fit Fun Casual T-Shirt Printed Graphic Tee Military Grey 2X-Large, Size: 2XL, Beige",
+      "price": "$26.99",
+      "shop": " from Walmart - Thread Tank",
+      "shipping": "Free shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(1)",
+      "link": "https://www.google.com//url?q=https://www.walmart.com/ip/Home-Roots-State-Tennessee-TN-Men-s-Modern-Fit-Fun-Casual-T-Shirt-Printed-Graphic-Tee-Military-Grey-2X-Large/363380173%3Fwmlspartner%3Dwlpa%26selectedSellerId%3D10012&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIxAM&amp;usg=AOvVaw15jQne4oWB8Z4eAGxCfW7e",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTiU2BmqQETDHqNWj_Fjjkw2oVC41LLPUzQ41XJhZcqeuqB8_TANhResHE5_evZ4jPggST6dBTy&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style Fisherman Defined Men's T-Shirt",
+      "price": "$26.95",
+      "shop": " from Amazon.com - Seller",
+      "shipping": "Free shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(40)",
+      "link": "https://www.google.com//url?q=https://www.amazon.com/Grunt-Style-Fisherman-Defined-T-Shirt/dp/B09SVL296H%3Fsource%3Dps-sl-shoppingads-lpcontext%26ref_%3Dfplfs%26psc%3D1%26smid%3DA3MITZKLBZMXQA&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIxwM&amp;usg=AOvVaw0uqM6zkHrwvjIevClX9XVU",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT0L--Cv8kFBVy697JzFkk2Zykgj01jKc4uSOJwFnsi_7lOn99oe3guiuZrX7Q&amp;usqp=CAE"
+   },
+   {
+      "title": "Santa Cruz Saints &amp; Sinners Black T-Shirt - Size XL - Black - Graphic - Skate - T-shirts - Men's Clothing at Zumiez",
+      "price": "$26.95",
+      "shop": " from Zumiez",
+      "shipping": "+$6.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(22)",
+      "link": "https://www.google.com//url?q=https://www.zumiez.com/santa-cruz-saints-sinners-black-t-shirt.html%3Futm_source%3Dgoogle_shopping%26utm_medium%3Dcpc%26utm_term%3D1180406%26utm_campaign%3Dgoogle_shopping%26srsltid%3DAR5OiO2G3dZ2spwD6Y_aRaMAvD3Me_H-bfmkynUMjPsf4wNSALimxP23gxQ&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIywM&amp;usg=AOvVaw2a8TEsvB54oif0R53YCX7n",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTfBTGwookj4nzIkMHAm097CMchLxE6wp35kzQ4VxOJD4a_FddB3wG2VQuw-Q&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style May The 4th Men's T-Shirt",
+      "price": "$26.95",
+      "shop": " from Amazon.com - Seller",
+      "shipping": "Free shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(93)",
+      "link": "https://www.google.com//url?q=https://www.amazon.com/Grunt-Style-T-Shirt-Black-XXXLarge/dp/B0977K6CBS%3Fsource%3Dps-sl-shoppingads-lpcontext%26ref_%3Dfplfs%26psc%3D1%26smid%3DA3MITZKLBZMXQA&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIzgM&amp;usg=AOvVaw2ITQODgBJ_YstvjedeCHQ5",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTGyY7uKRostNs06U_aqmh3fguNH4rWiP5_h1HOK0U9xw7FYwTZ0kW50QHAzjf1K6kITrN9G5U&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style Blank Check T-Shirt, Men's, Size: XL, Black",
+      "price": "$26.95",
+      "shop": " from Amazon.com - Seller",
+      "shipping": "Free shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(648)",
+      "link": "https://www.google.com//url?q=https://www.amazon.com/Grunt-Style-Blank-T-Shirt-X-Large/dp/B00TCOX9QW%3Fsource%3Dps-sl-shoppingads-lpcontext%26ref_%3Dfplfs%26psc%3D1%26smid%3DA3MITZKLBZMXQA&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI0QM&amp;usg=AOvVaw0h31IEE4dDvczU-n7vIwcr",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTnahf8Lh4pffzXuweQLQq3nSuWY-QBt3zKi807D_5K6ld1wluogVQau-FJPjUcE74fqfcLElYd&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style Fear No Evil 2.0 T-Shirt - Black, Men's, Size: Small",
+      "price": "$26.95",
+      "shop": " from Amazon.com - Seller",
+      "shipping": "Free shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(191)",
+      "link": "https://www.google.com//url?q=https://www.amazon.com/Grunt-Style-T-Shirt-Color-Black/dp/B07V2Z9CPS%3Fsource%3Dps-sl-shoppingads-lpcontext%26ref_%3Dfplfs%26psc%3D1%26smid%3DA3MITZKLBZMXQA&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI1AM&amp;usg=AOvVaw3ACkFxUY4A8p7F_zAZlFTx",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ5NXX2dohP0dLA1q06NielcrPQcLDk9feRALQJ2vKIOmxqZYz7ZHdqXU7dxg&amp;usqp=CAE"
+   },
+   {
+      "title": "Mil-Tec T-Shirt Mandra Tan size S",
+      "price": "$26.95",
+      "shop": " from Military1st.com",
+      "shipping": "+$8.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(37)",
+      "link": "https://www.google.com//url?q=https://www.military1st.com/11012083-mil-tec-t-shirt-mandra-tan.html&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI1wM&amp;usg=AOvVaw0hMCpuKBObMerTjkZ5ZnhH",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTJvWsrVAU32u_YWDpCR79cqcQO3w1gKB4wZnJOshWYoFetHSMro_L7bNDTR3ZG0ILojGtacNKc&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style Your Feelings T-Shirt",
+      "price": "$26.95",
+      "shop": " from Amazon.com - Seller",
+      "shipping": "Free shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(25,271)",
+      "link": "https://www.google.com//url?q=https://www.amazon.com/Grunt-Style-Feelings-T-Shirt-Heather/dp/B0917HLPH2%3Fsource%3Dps-sl-shoppingads-lpcontext%26ref_%3Dfplfs%26psc%3D1%26smid%3DA3MITZKLBZMXQA&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI2gM&amp;usg=AOvVaw0VS2FeBlwR6pKwbzIP8fH8",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSH4xatKAU5r2Y7T1m0_Z4baaBhPfWvHqVRxX21xYrNoGJ5rSXGG6NYp9UB5Fc&amp;usqp=CAE"
+   },
+   {
+      "title": "Venum MMA Giant T-shirt-Black-xl",
+      "price": "$26.05",
+      "shop": " from Amazon.com",
+      "shipping": "Free shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(20)",
+      "link": "https://www.google.com//url?q=https://www.amazon.com/Venum-Giant-T-Shirt-Black-X-Large/dp/B009D4AIZQ%3Fsource%3Dps-sl-shoppingads-lpcontext%26ref_%3Dfplfs%26psc%3D1%26smid%3DATVPDKIKX0DER&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI3QM&amp;usg=AOvVaw1lZY5NCK9hnNEeFyHdzIzy",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSQgJKuAzYiX30C9N9Qfeb1wXvi8A3ATchnH5MHv4CT4XC7vIed2OC0b0zxtheQVjgPZHtI7vc&amp;usqp=CAE"
+   },
+   {
+      "title": "Mens Eetu Skull Standard Black / L",
+      "price": "$25.99",
+      "shop": " from Sullen Clothing",
+      "shipping": "+$4.15 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(9)",
+      "link": "https://www.google.com//url?q=https://www.sullenclothing.com/products/eetu-skull%3Fcurrency%3DUSD%26variant%3D39881571631203%26utm_medium%3Dcpc%26utm_source%3Dgoogle%26utm_campaign%3DGoogle%2520Shopping&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI4QM&amp;usg=AOvVaw2Wt-VcnadrJTU2VNQXUIWl",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR2tXmnlsHzvu8rORM7zCpW3cte0tT-taR2pMpJkSIsTQfo_GNu2GicI0xiCg&amp;usqp=CAE"
+   },
+   {
+      "title": "Mens Sullen True Love Standard T-Shirt",
+      "price": "$25.99",
+      "shop": " from Sullen Clothing",
+      "shipping": "+$4.15 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(10)",
+      "link": "https://www.google.com//url?q=https://www.sullenclothing.com/products/true-love%3Fvariant%3D39881577627747%26currency%3DUSD%26utm_medium%3Dproduct_sync%26utm_source%3Dgoogle%26utm_content%3Dsag_organic%26utm_campaign%3Dsag_organic&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI5QM&amp;usg=AOvVaw3FAOXs_V8-bFkLV18YvmyH",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcS55qtS7fsXlcVzO_iLcRwrUeJR5gETeApAgkD-s4u3ve3Dj2GePF8PFCJpZDE&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style Range Day Men's T-Shirt",
+      "price": "$25.95",
+      "shop": " from Gruntstyle",
+      "shipping": "+$6.95 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(28)",
+      "link": "https://www.google.com//url?q=https://gruntstyle.com/products/range-day-military-green&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI6QM&amp;usg=AOvVaw0i5eZ_8g0rapvmua4cgOjy",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQvGKr6lSvO6U3cDmhywQkn3kmrTITUKb47ovjyyRCMgl5AVov_W0_NaoNjTxtnigoFVGzRGNo3&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style Grumpy Old Vet Men's T-Shirt",
+      "price": "$25.95",
+      "shop": " from Gruntstyle",
+      "shipping": "+$6.95 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(298)",
+      "link": "https://www.google.com//url?q=https://gruntstyle.com/products/grumpy-old-vet&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI7QM&amp;usg=AOvVaw2VNrn6kJ_h-cQBO8Q0Qpa1",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTG7XLQwdp14wE3mzphTcoryLK1Qe8vRRRFf0iJSpPXQzJJ90HV0707JLmVaQ&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style O.E.F. Veteran Men's T-Shirt",
+      "price": "$25.95",
+      "shop": " from Gruntstyle",
+      "shipping": "+$6.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(25,271)",
+      "link": "https://www.google.com//url?q=https://gruntstyle.com/products/o-e-f-veteran&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI8QM&amp;usg=AOvVaw29hyK1ZvbUiJegJ76koulQ",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTP1_x2CbZ6wZeIwn9XqHhtNhGELLf8f7nJg9pT813zJ8PODjsQNdlUArhEm6A&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style Mens Basic Crew T-Shirt Navy / Small",
+      "price": "$25.95",
+      "shop": " from Gruntstyle",
+      "shipping": "+$6.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(25,271)",
+      "link": "https://www.google.com//url?q=https://gruntstyle.com/products/basic-crew-navy&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI9QM&amp;usg=AOvVaw3fTXzbM-oT3etxGdvR-1NU",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSEwdIdl8IVrrbsszCfxCzgMpCVGW7tRGS2ScuswBzM0HlTgL7qM0XRxyEgcp3GGCwgbUAjo4hG&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style Get in Loser T-Shirt - Black",
+      "price": "$25.95",
+      "shop": " from Gruntstyle",
+      "shipping": "+$6.95 shipping",
+      "rating": "4.5 out of 5 stars",
+      "reviews": "(34)",
+      "link": "https://www.google.com//url?q=https://gruntstyle.com/products/get-in-loser&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI-QM&amp;usg=AOvVaw2P7QBishVjAQGMd48Lknlb",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSzyOActweeGa2HNjVjoDoaWvX-nDOxR6VnwKJGtiBADlAuZlexqDNw7UmPvg&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style Mens Basic Crew T-Shirt Military Green / X-Large",
+      "price": "$25.95",
+      "shop": " from Gruntstyle",
+      "shipping": "+$6.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(25,271)",
+      "link": "https://www.google.com//url?q=https://gruntstyle.com/products/mens-tee-basic-crew-military-green&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwI_AM&amp;usg=AOvVaw1BOhpXMAeVcybLC_lNOlGp",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRuPt5Mc14janZ3S0BWSyGAe02YvFt3is_7fpYG1LOrDasHESxruIMge9-XfHE&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style Men's This We'll Defend Flag 2.0 T-Shirt Indigo / X-Large",
+      "price": "$25.95",
+      "shop": " from Gruntstyle",
+      "shipping": "+$6.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(513)",
+      "link": "https://www.google.com//url?q=https://gruntstyle.com/products/this-well-defend-flag-2-0&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIgAQ&amp;usg=AOvVaw3ozRbGKn7-vwn3eQX2tfy2",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTCBfmMMoVUXYlh5-fh-rQn0JDHWdMtrdxHdjZ6ruGkpyUcd1DFEa5TqqO16w&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style O.I.F. Veteran Men's T-Shirt",
+      "price": "$25.95",
+      "shop": " from Gruntstyle",
+      "shipping": "+$6.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(25,271)",
+      "link": "https://www.google.com//url?q=https://gruntstyle.com/products/o-i-f-veteran&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIhAQ&amp;usg=AOvVaw0qdQVVhvwtLwcZfpdk8Oxx",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTYafcOiPcOL2hDBq72EBI3MttHvC8rNijh-YqtZx9DyQgg33ddthpWZLv3d60&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style Logo Basic T-Shirt - Medium - Military Green",
+      "price": "$25.95",
+      "shop": " from Gruntstyle",
+      "shipping": "+$6.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(25,271)",
+      "link": "https://www.google.com//url?q=https://gruntstyle.com/products/grunt-style-logo-basic-military-green&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIiAQ&amp;usg=AOvVaw3p-00wOIvI5BNZ1r3JrTH5",
+      "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQFSkqV73O4762LcmJaCfIqTsYKqSiSvAgy18_zNxmmOy15Vm8rILkRfWHxgg&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style Worn Flag 2.0 Men's T-Shirt",
+      "price": "$25.95",
+      "shop": " from Gruntstyle",
+      "shipping": "+$6.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(25,271)",
+      "link": "https://www.google.com//url?q=https://gruntstyle.com/products/worn-flag-2-0&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIjAQ&amp;usg=AOvVaw3T3pai2G4ZFvw9wCzPqYML",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSrhU36BaEVUnjX8Qsfuv8ipBGq2XeF3LIdCxsj70xzO7jFRLVu1YH-FhdV4jk&amp;usqp=CAE"
+   },
+   {
+      "title": "Hometown Apparel Big Falls Minnesota Classic Established Men's Cotton T-Shirt, Adult Unisex, Size: 3XL, Black",
+      "price": "$25.95",
+      "shop": " from Walmart - Hometown Apparel",
+      "shipping": "Free shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(8)",
+      "link": "https://www.google.com//url?q=https://www.walmart.com/ip/Big-Falls-Minnesota-Classic-Established-Men-s-Cotton-T-Shirt/1205745541%3Fwmlspartner%3Dwlpa%26selectedSellerId%3D101004189&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIkAQ&amp;usg=AOvVaw14XzuzKjFfCBUb9cpPre2Q",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTpmHnUzMi-OydZ8WVyHpgB4a00aAX07bgIZ7Rj4tjTKTmbBF28D9b4vmXumXsEhJLtX5fvonUG&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style Men's Whiskey Helps T-Shirt Black Small",
+      "price": "$25.95",
+      "shop": " from Gruntstyle",
+      "shipping": "+$6.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(601)",
+      "link": "https://www.google.com//url?q=https://gruntstyle.com/products/whiskey-helps-black&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIkwQ&amp;usg=AOvVaw3beg0qvnv7WiYulwqaozfc",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQQPv6Z5qx6v7WyiqZkJqQkVboN9fwFISGE9B5LZ8GJe-wP4E3WGMm3aa5OhMamxvmazC21gu20&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style Men's Usaf Basic Logo T-Shirt - Royal - L",
+      "price": "$25.95",
+      "shop": " from Gruntstyle",
+      "shipping": "+$6.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(73)",
+      "link": "https://www.google.com//url?q=https://gruntstyle.com/products/usaf-basic-logo&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwIlwQ&amp;usg=AOvVaw3ecRf7IcRA2v4eQepVo83F",
+      "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRTl7jNL3Xg0t5J5534yTOk9tnCC111cD2g9A2yrdS2wPTmdGCYqPUXw3eXlXinVJ-nnqzD1pg&amp;usqp=CAE"
+   },
+   {
+      "title": "Grunt Style American Acid Men's T-Shirt",
+      "price": "$25.95",
+      "shop": " from Gruntstyle",
+      "shipping": "+$6.95 shipping",
+      "rating": "5 out of 5 stars",
+      "reviews": "(329)",
+      "link": "https://www.google.com//url?q=https://gruntstyle.com/products/american-acid-royal&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQsDwImwQ&amp;usg=AOvVaw1n48ns0wvcI-zdfud32ENP",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQxfEpDP-fvCvJ3qHj2kO4VfPatmj-DKVNG23G9rukVaHAgpWVjsoswTFc1-P86mE701n6LT8k&amp;usqp=CAE"
+   }
+]
+18 Promotional Tees | Adult Performance Blend T-Shirt Royal Blue Unisex Medium - Blue - Poly/Cotton 65/35 - Adult - 4imprint
+$265.90
+ from 4imprint
++$18.51 shipping
+https://www.google.com//url?q=https://www.4imprint.com/product/124634%3Fgfeed%3D1%26mkid%3D1pla124634&amp;sa=U&amp;ved=0ahUKEwjR2uWV8ZL7AhUaE1kFHbnOC3sQ2SkIzAE&amp;usg=AOvVaw1Z_e9zotVBTwIknud3RQvY
+https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRPEE8fcDUxOlA61ovZo3GsJ3MDWdQhdhlTERNzefJeefsVjJWsaoEqkzb9xHNcuP897nreVwEt&amp;usqp=CAE
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"what would you like to learn"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+
+<span class="n">math</span> <span class="o">=</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"math is basically 1+1=3 because the sqaure root of the tangent line is congruent to the cylinder"</span><span class="p">)</span>
+<span class="n">history</span> <span class="o">=</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"hisotry is simple, everything happened in europe because everyone wanted to think their god is better and that their store bought items are cooler"</span><span class="p">)</span>
+<span class="n">science</span> <span class="o">=</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"funny atom go small"</span><span class="p">)</span>
+<span class="n">apcsp</span> <span class="o">=</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"I am not going to explain the entirety of apcsp to you, neither is mort"</span><span class="p">)</span>
+<span class="n">spanish</span> <span class="o">=</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"espanol es primero porque la classe es muy divertido y tengo muchos amigos"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>math
+math is basically 1+1=3 because the sqaure root of the tangent line is congruent to the cylinder
+hisotry is simple, everything happened in europe because everyone wanted to think their god is better and that their store bought items are cooler
+funny atom go small
+I am not going to explain the entirety of apcsp to you, neither is mort
+espanol es primero porque la classe es muy divertido y tengo muchos amigos
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
