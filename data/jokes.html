@@ -8,8 +8,8 @@
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Fetch of Backend Jokes" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="An example of Frontend talking to Backend Python application serving jokes. This example provides the ability to react to the Joke (fivestar or onestar)." />
-<meta property="og:description" content="An example of Frontend talking to Backend Python application serving jokes. This example provides the ability to react to the Joke (fivestar or onestar)." />
+<meta name="description" content="An example of Frontend talking to Backend Python application serving jokes. This example provides the ability to react to the Joke (haha or boohoo)." />
+<meta property="og:description" content="An example of Frontend talking to Backend Python application serving jokes. This example provides the ability to react to the Joke (haha or boohoo)." />
 <link rel="canonical" href="https://aaron-rub.github.io/FP/data/jokes" />
 <meta property="og:url" content="https://aaron-rub.github.io/FP/data/jokes" />
 <meta property="og:site_name" content="Aaron’s fastpges" />
@@ -20,7 +20,7 @@
 <meta property="twitter:image" content="https://aaron-rub.github.io/FP/images/jokes.png" />
 <meta property="twitter:title" content="Fetch of Backend Jokes" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-07-10T00:00:00-05:00","datePublished":"2022-07-10T00:00:00-05:00","description":"An example of Frontend talking to Backend Python application serving jokes. This example provides the ability to react to the Joke (fivestar or onestar).","headline":"Fetch of Backend Jokes","image":"https://aaron-rub.github.io/FP/images/jokes.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://aaron-rub.github.io/FP/data/jokes"},"url":"https://aaron-rub.github.io/FP/data/jokes"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-07-10T00:00:00-05:00","datePublished":"2022-07-10T00:00:00-05:00","description":"An example of Frontend talking to Backend Python application serving jokes. This example provides the ability to react to the Joke (haha or boohoo).","headline":"Fetch of Backend Jokes","image":"https://aaron-rub.github.io/FP/images/jokes.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://aaron-rub.github.io/FP/data/jokes"},"url":"https://aaron-rub.github.io/FP/data/jokes"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/FP/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://aaron-rub.github.io/FP/feed.xml" title="Aaron's fastpges" /><link rel="shortcut icon" type="image/x-icon" href="/FP/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -76,10 +76,9 @@ window.onload = wrap_img;
 <table>
   <thead>
   <tr>
-    <th>Question</th>
-    <th>5 Star</th>
-    <th>3 Star</th>
-    <th>1 Star</th>
+    <th>Joke</th>
+    <th>HaHa</th>
+    <th>Boohoo</th>
   </tr>
   </thead>
   <tbody id="result">
@@ -94,15 +93,13 @@ window.onload = wrap_img;
   const resultContainer = document.getElementById("result");
 
   // keys for joke reactions
-  const fiveStar = "5 Star";
-  const threestar = "3 Star";
-  const onestar = "1 Star";
+  const HAHA = "haha";
+  const BOOHOO = "boohoo";
 
   // prepare fetch urls
   const url = "https://flask.nighthawkcodingsociety.com/api/jokes";
-  const good_url = url + "/good/";  // five star reaction
-  const mid_url = url + "/mid/"; // three star reaction
-  const bad_url = url + "/bad/";  // 1 star reaction
+  const like_url = url + "/like/";  // haha reaction
+  const jeer_url = url + "/jeer/";  // boohoo reaction
 
   // prepare fetch GET options
   const options = {
@@ -138,44 +135,32 @@ window.onload = wrap_img;
             const joke = document.createElement("td");
               joke.innerHTML = row.id + ". " + row.joke;  // add fetched data to innerHTML
 
-            // td for fivestar cell with onclick actions
-            const fivestar = document.createElement("td");
-              const fivestar_but = document.createElement('button');
-              fivestar_but.id = fivestar +row.id   // establishes a fivestar  JS id for cell
-              fivestar_but.innerHTML = row.fivestar;  // add fetched "fivestar count" to innerHTML
-              fivestar_but.onclick = function () {
+            // td for haha cell with onclick actions
+            const haha = document.createElement("td");
+              const haha_but = document.createElement('button');
+              haha_but.id = HAHA+row.id   // establishes a HAHA JS id for cell
+              haha_but.innerHTML = row.haha;  // add fetched "haha count" to innerHTML
+              haha_but.onclick = function () {
                 // onclick function call with "like parameters"
-                reaction(fivestar , like_url+row.id, fivestar_but.id);  
+                reaction(HAHA, like_url+row.id, haha_but.id);  
               };
-              fivestar.appendChild(fivestar_but);  // add "fivestar button" to fivestar cell
+              haha.appendChild(haha_but);  // add "haha button" to haha cell
 
-             // td for threestar cell with onclick actions
-            const threestar = document.createElement("td");
-              const threestar_but = document.createElement('button');
-              threestar_but.id = threestar +row.id   // establishes a threestar  JS id for cell
-              threestar_but.innerHTML = row.threestar;  // add fetched "threestar count" to innerHTML
-              threestar_but.onclick = function () {
-                // onclick function call with "like parameters"
-                reaction(threestar , like_url+row.id, threestar_but.id);  
-              };
-              threestar.appendChild(threestar_but);  // add "threestar button" to threestar cell
-
-            // td for onestar cell with onclick actions
-            const onestar = document.createElement("td");
-              const onestar_but = document.createElement('button');
-              onestar_but.id = onestar+row.id  // establishes a onestar JS id for cell
-              onestar_but.innerHTML = row.onestar;  // add fetched "onestar count" to innerHTML
-              onestar_but.onclick = function () {
+            // td for boohoo cell with onclick actions
+            const boohoo = document.createElement("td");
+              const boohoo_but = document.createElement('button');
+              boohoo_but.id = BOOHOO+row.id  // establishes a BOOHOO JS id for cell
+              boohoo_but.innerHTML = row.boohoo;  // add fetched "boohoo count" to innerHTML
+              boohoo_but.onclick = function () {
                 // onclick function call with "jeer parameters"
-                reaction(onestar, jeer_url+row.id, onestar_but.id);  
+                reaction(BOOHOO, jeer_url+row.id, boohoo_but.id);  
               };
-              onestar.appendChild(onestar_but);  // add "onestar button" to onestar cell
+              boohoo.appendChild(boohoo_but);  // add "boohoo button" to boohoo cell
              
             // this builds ALL td's (cells) into tr (row) element
             tr.appendChild(joke);
-            tr.appendChild(fivestar);\
-            tr.appendChild(threestar);
-            tr.appendChild(onestar);
+            tr.appendChild(haha);
+            tr.appendChild(boohoo);
 
             // this adds all the tr (row) work above to the HTML "result" container
             resultContainer.appendChild(tr);
@@ -203,10 +188,10 @@ window.onload = wrap_img;
       response.json().then(data => {
           console.log(data);
           // Likes or Jeers updated/incremented
-          if (type === fivestar ) // like data element
-            document.getElementById(elemID).innerHTML = data.fivestar;  // fetched fivestar data assigned to fivestar Document Object Model (DOM)
-          else if (type === onestar) // jeer data element
-            document.getElementById(elemID).innerHTML = data.onestar;  // fetched onestar data assigned to onestar Document Object Model (DOM)
+          if (type === HAHA) // like data element
+            document.getElementById(elemID).innerHTML = data.haha;  // fetched haha data assigned to haha Document Object Model (DOM)
+          else if (type === BOOHOO) // jeer data element
+            document.getElementById(elemID).innerHTML = data.boohoo;  // fetched boohoo data assigned to boohoo Document Object Model (DOM)
           else
             error("unknown type: " + type);  // should never occur
       })
@@ -254,7 +239,7 @@ window.onload = wrap_img;
       </div>
     </div>
 
-    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/FP/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/FP/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+    <div class="social-links"><ul class="social-media-list"></ul>
 </div>
 
   </div>
