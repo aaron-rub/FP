@@ -4,9 +4,9 @@
         "post0": {
             "title": "Lesson 8-10 Hacks",
             "content": "What is Iteration?: a repeating portion of an algorithm, repeats a specified number of times or until a given condition is met . What is an Iteration Statement?: change the sequential flow of control by repeating a set of statements zero or more times, until a stopping condition is met . What does Repeat Until mean?: if the condition evaluates to true initially, the loop body is not executed at all, due to the condition being checked before the loop . Hacks Unit 3 Section 3.8.1 . Define an Iteration | Make your own example of an iteration with at least 4 steps and a stopping condition(Similar to mine that I did) | Program a simple iteration. | n = 5 while n &gt; 0: n -= 1 if n == 2: break print(n) print(&#39;Loop ended.&#39;) . 4 3 Loop ended. . for x in range(3): print(x) else: print(&quot;Final x = %d&quot; % (x)) . 0 1 2 Final x = 2 . def my_range(start, end, step): while start &lt;= end: yield start start += step for x in my_range(1, 10, 2): # 1 is the starting value of the iteration and 10 is where it will end aka its max. The step is what the list will be printing/going for, for example when I change it to 2 it will start counting by twos from the starting value. print(x) . 1 3 5 7 9 . Hacks Unit 3 Section 3.8.2 . What is an iteration statement, in your own words? | Create a descending list of numbers using for loop | Using while loop, make a list of numbers which will form an output of 3,16,29,42,55,68,81 | def mylist(start, end, step): while start &lt;= end: yield start start -= step for x in mylist(3, 81, 4): print(x) .",
-            "url": "https://aaron-rub.github.io/FP/collegeboard/2022/12/05/hacks.html",
-            "relUrl": "/collegeboard/2022/12/05/hacks.html",
-            "date": " • Dec 5, 2022"
+            "url": "https://aaron-rub.github.io/FP/collegeboard/2022/12/07/hacks.html",
+            "relUrl": "/collegeboard/2022/12/07/hacks.html",
+            "date": " • Dec 7, 2022"
         }
         
     
@@ -15,9 +15,9 @@
         ,"post1": {
             "title": "Lesson 5-7 Hacks",
             "content": "IsSnowing = False result = not(IsSnowing) print(result) . True . grade = 80 # Has to be between 70 and 100 if grade &gt; 70 and grade &lt;= 100: print(&quot;You passed the quiz&quot;) . You passed the quiz . Logical Operator . A logical operator is a symbol or word used to connect two or more expressions Selection | A statement that affects the sequence of control by executing certain statements depending on the value of a boolean (true or false). | A specific task that is completed with the use of instructions Conditional Statement / If-Statement: | The specific block of code that will execute depending on the algorithm condition returning true or false. Algorithm | . BasketballMinutesPlayed = 48 if BasketballMinutesPlayed &gt; 48 and grade &lt;=80: print(&quot;you played the full basketball game, congradulations!&quot;) else: print(&quot;You need to train more&quot;) # Adding another variation to the hack . You need to train more . import random result = &quot;Your random number is 27&quot; a_list = [27, 32, 96,] random.shuffle(a_list) a_list[0] if a_list == 27: print(result) else: print(result) . Your random number is 27 . import random a=random.randint(1,100) print(a) . 40 .",
-            "url": "https://aaron-rub.github.io/FP/collegeboard/2022/12/05/group-lesson-5-7.html",
-            "relUrl": "/collegeboard/2022/12/05/group-lesson-5-7.html",
-            "date": " • Dec 5, 2022"
+            "url": "https://aaron-rub.github.io/FP/collegeboard/2022/12/07/group-lesson-5-7.html",
+            "relUrl": "/collegeboard/2022/12/07/group-lesson-5-7.html",
+            "date": " • Dec 7, 2022"
         }
         
     
