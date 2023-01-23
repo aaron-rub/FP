@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      8 min read
     
 </span></p>
 
@@ -518,6 +518,73 @@ Test 4, make a dictionary
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Stock</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ticker</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
+        <span class="c1"># constructor method, called when an object of the class is created</span>
+        <span class="c1"># initializes the object's attributes (name, ticker, price) with the input values</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ticker</span> <span class="o">=</span> <span class="n">ticker</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">price</span>
+
+    <span class="k">def</span> <span class="nf">update_price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_price</span><span class="p">):</span>
+        <span class="c1"># method to update the price attribute of the object</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">new_price</span>
+
+    <span class="k">def</span> <span class="nf">print_profile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># method to print the object's attributes</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Name: "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Ticker: "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ticker</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Price: "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="p">)</span>
+
+<span class="c1"># remove 'import stock'</span>
+
+<span class="c1"># creating an object of the Stock class</span>
+<span class="n">stock</span> <span class="o">=</span> <span class="n">Stock</span><span class="p">(</span><span class="s2">"Google"</span><span class="p">,</span> <span class="s2">"GOOGL"</span><span class="p">,</span> <span class="mi">1500</span><span class="p">)</span>
+<span class="c1"># calling the print_profile method on the object to print its attributes</span>
+<span class="n">stock</span><span class="o">.</span><span class="n">print_profile</span><span class="p">()</span>
+<span class="c1"># Output: Name: Google, Ticker: GOOGL, Price: 1500</span>
+
+<span class="c1"># calling the update_price method on the object to update its price attribute</span>
+<span class="n">stock</span><span class="o">.</span><span class="n">update_price</span><span class="p">(</span><span class="mi">1550</span><span class="p">)</span>
+
+<span class="c1"># calling the print_profile method on the object to print its updated attributes</span>
+<span class="n">stock</span><span class="o">.</span><span class="n">print_profile</span><span class="p">()</span>
+<span class="c1"># Output: Name: Google, Ticker: GOOGL, Price: 1550</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Name:  Google
+Ticker:  GOOGL
+Price:  1500
+Name:  Google
+Ticker:  GOOGL
+Price:  1550
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
