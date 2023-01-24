@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      9 min read
     
 </span></p>
 
@@ -563,6 +563,40 @@ Test 4, make a dictionary
 <span class="c1"># calling the print_profile method on the object to print its updated attributes</span>
 <span class="n">stock</span><span class="o">.</span><span class="n">print_profile</span><span class="p">()</span>
 <span class="c1"># Output: Name: Google, Ticker: GOOGL, Price: 1550</span>
+
+<span class="c1"># Import the ipywidgets library</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+
+<span class="c1"># Create a text box for the user to input the name of the stock</span>
+<span class="n">name_input</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">'Name:'</span><span class="p">)</span>
+
+<span class="c1"># Create a text box for the user to input the ticker of the stock</span>
+<span class="n">ticker_input</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">'Ticker:'</span><span class="p">)</span>
+
+<span class="c1"># Create a text box for the user to input the price of the stock</span>
+<span class="n">price_input</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">'Price:'</span><span class="p">)</span>
+
+<span class="c1"># Create a button that, when clicked, creates a stock object and displays its attributes</span>
+<span class="n">create_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">'Create Stock'</span><span class="p">)</span>
+
+<span class="c1"># Create a function that is called when the create_button is clicked</span>
+<span class="k">def</span> <span class="nf">create_stock</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="c1"># Get the values entered in the input boxes</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">name_input</span><span class="o">.</span><span class="n">value</span>
+    <span class="n">ticker</span> <span class="o">=</span> <span class="n">ticker_input</span><span class="o">.</span><span class="n">value</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="n">price_input</span><span class="o">.</span><span class="n">value</span>
+    
+    <span class="c1"># Create a stock object using the input values</span>
+    <span class="n">stock</span> <span class="o">=</span> <span class="n">Stock</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">ticker</span><span class="p">,</span> <span class="n">price</span><span class="p">)</span>
+    
+    <span class="c1"># Display the stock's attributes</span>
+    <span class="n">stock</span><span class="o">.</span><span class="n">print_profile</span><span class="p">()</span>
+
+<span class="c1"># Tell the create_button to call the create_stock function when clicked</span>
+<span class="n">create_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">create_stock</span><span class="p">)</span>
+
+<span class="c1"># Display the input boxes and button</span>
+<span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">name_input</span><span class="p">,</span> <span class="n">ticker_input</span><span class="p">,</span> <span class="n">price_input</span><span class="p">,</span> <span class="n">create_button</span><span class="p">])</span>
 </pre></div>
 
     </div>
