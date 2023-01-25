@@ -54,7 +54,7 @@ layout: notebook
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello, Aaron!
+<pre>Hello, Aaro!
 </pre>
 </div>
 </div>
@@ -97,7 +97,7 @@ layout: notebook
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>My name is skylar white yo!my husband is walter white yo
+<pre>My name is skylr white yo!my husband is walter white yo
 </pre>
 </div>
 </div>
@@ -146,7 +146,7 @@ layout: notebook
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>My name is skylar white yo!my husband is walter white yo
+<pre>My name is skylr white yo!my husband is walter white yo
 </pre>
 </div>
 </div>

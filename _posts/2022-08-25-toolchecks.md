@@ -44,10 +44,12 @@ _openmp_mutex             4.5                       1_gnu
 aiohttp                   3.8.1            py39h7f8727e_1  
 aiosignal                 1.2.0              pyhd3eb1b0_0  
 alabaster                 0.7.12             pyhd3eb1b0_0  
+alembic                   1.8.1                    pypi_0    pypi
 anaconda                  2022.05                  py39_0  
 anaconda-client           1.9.0            py39h06a4308_0  
 anaconda-navigator        2.1.4            py39h06a4308_0  
 anaconda-project          0.10.2             pyhd3eb1b0_0  
+aniso8601                 9.0.1                    pypi_0    pypi
 anyio                     3.5.0            py39h06a4308_0  
 appdirs                   1.4.4              pyhd3eb1b0_0  
 argon2-cffi               21.3.0             pyhd3eb1b0_0  
@@ -137,6 +139,10 @@ expat                     2.4.4                h295c915_0
 filelock                  3.6.0              pyhd3eb1b0_0  
 flake8                    3.9.2              pyhd3eb1b0_0  
 flask                     1.1.2              pyhd3eb1b0_0  
+flask-login               0.6.2                    pypi_0    pypi
+flask-migrate             3.1.0                    pypi_0    pypi
+flask-restful             0.3.9                    pypi_0    pypi
+flask-sqlalchemy          2.5.1                    pypi_0    pypi
 fontconfig                2.13.1               h6c09931_0  
 fonttools                 4.25.0             pyhd3eb1b0_0  
 freetype                  2.11.0               h70c0345_0  
@@ -252,6 +258,7 @@ locket                    0.2.1            py39h06a4308_2
 lxml                      4.8.0            py39h1f438cf_0  
 lz4-c                     1.9.3                h295c915_1  
 lzo                       2.10                 h7b6447c_2  
+mako                      1.2.2                    pypi_0    pypi
 markdown                  3.3.4            py39h06a4308_0  
 markupsafe                2.0.1            py39h27cfd23_0  
 matplotlib                3.5.1            py39h06a4308_1  
