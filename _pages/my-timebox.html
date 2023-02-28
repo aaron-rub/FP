@@ -1,27 +1,36 @@
----
-layout: default
-permalink: /timebox/
-title: Timebox
-search_exclude: true
----
- 
-<table>
- 
-   <tr>
-       <th>Week</th>
-       <th>Unit</th>
-       <th>Summary</th>
-       <th>Completed</th>
-   </tr>
- 
-   {% for i in (0..site.week_number) %}
- 
-   <tr>
-       <td>{{ i }}</td>
-       <td>{{ site.weekly_units[i] }}</td>
-       <td>{{ site.summary[i] }}</td>
-       <td>{{ site.completed[i] }}</td>
-   </tr>
-   {% endfor %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stock News</title>
+</head>
+<body>
+  <h1>Stock News</h1>
+  <ul id="news-list"></ul>
 
-</table>
+  <script>
+    const apiKey = '400e8f94f6ae44f6b8224650d702d8a6';
+    const newsList = document.getElementById('news-list');
+
+    fetch(`https://newsapi.org/v2/everything?q=stocks&apiKey=${apiKey}`)
+      .then(response => response.json())
+      .then(data => {
+        data.articles.forEach(article => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = article.url;
+          a.target = '_blank';
+          a.textContent = article.title;
+          li.appendChild(a);
+          newsList.appendChild(li);
+        });
+      })
+      .catch(error => {
+        console.log(error);
+        const li = document.createElement('li');
+        li.textContent = 'Error fetching news';
+        newsList.appendChild(li);
+      });
+  </script>
+</body>
+</html>
